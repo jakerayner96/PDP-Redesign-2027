@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDP Research Playback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Geologica:ital,wght@0,200;0,300;0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
+<style>
+:root{--stage-bg:#050505;--slide-bg:#050505;--text:#fff;--mute:#9a9a92;--line:rgba(255,255,255,.3);--accent-dim:rgba(255,255,255,.05);--warn:#ffb020;--ease:cubic-bezier(0.16,1,0.3,1)}
+/* Always-dark presentation: same tokens in both schemes */
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--stage-bg:#050505;--slide-bg:#050505;--text:#fff;--mute:#9a9a92}}
+:root[data-theme="dark"]{--stage-bg:#050505;--slide-bg:#050505;--text:#fff;--mute:#9a9a92}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg)}
+.deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg)}
+.deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg)}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg)}
+.slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}
+img{max-width:none}
+.deck-controls{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000}
+@media print{html,body{width:1920px;height:auto;overflow:visible}.deck-viewport{position:static;overflow:visible}.deck-stage{position:static;width:auto;height:auto;transform:none!important}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;width:1920px;height:1080px;break-after:page}.slide:last-child{break-after:auto}.deck-controls,.hud,.progress{display:none!important}.reveal,.reveal-img{opacity:1!important;transform:none!important}.rule,.bar i{transform:none!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+
+.slide{padding:100px;color:var(--text);font-family:'Geologica',sans-serif;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:96px 96px;background-position:center}
+.glow{position:absolute;width:1200px;height:1200px;border-radius:50%;filter:blur(120px);opacity:.55;pointer-events:none}
+.g1{background:radial-gradient(circle,var(--accent-dim) 0%,transparent 60%);right:-400px;top:-400px}
+.g2{background:radial-gradient(circle,var(--accent-dim) 0%,transparent 60%);left:-500px;bottom:-500px}
+.g3{background:radial-gradient(circle,var(--accent-dim) 0%,transparent 60%);right:-300px;bottom:-500px}
+.ghost{position:absolute;right:40px;bottom:-90px;font:700 560px/1 'Antonio';color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.06);letter-spacing:-.03em;pointer-events:none;user-select:none}
+.header{position:absolute;left:100px;top:96px;right:100px;z-index:3}
+.eyebrow{font:200 15px/1.5 'Geologica';letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+.slide-title{font:italic 700 74px/1.05 'Geologica';letter-spacing:-.04em;text-transform:uppercase;margin-top:14px}
+.rule{height:1px;background:linear-gradient(90deg,#fff,transparent);margin-top:24px;width:100%;transform:scaleX(0);transform-origin:left}
+.slide.visible .rule.draw{animation:draw 1s var(--ease) .35s forwards}
+@keyframes draw{to{transform:scaleX(1)}}
+.line1{position:absolute;left:100px;bottom:96px;font:300 30px/1.35 'Geologica';letter-spacing:-.01em;z-index:3;max-width:1200px}
+.cap{font:200 14px/1.5 'Geologica';letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+.big{font:700 96px/1 'Antonio';letter-spacing:-.01em}
+.huge{font:700 240px/.9 'Antonio';letter-spacing:-.02em}
+.ab{position:absolute;z-index:2}
+
+/* phone frame */
+.phone{position:absolute;width:360px;height:760px;border:1px solid rgba(255,255,255,.45);border-radius:46px;overflow:hidden;background:#fff;z-index:2;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+.phone img{width:100%;display:block}
+.phone.wf{background:#0e0e0e;padding:18px;display:flex;flex-direction:column;gap:10px}
+
+/* title */
+.kicker{font:200 20px/1.5 'Geologica';letter-spacing:.1em;text-transform:uppercase;position:absolute;left:100px;top:266px;color:var(--mute);z-index:3}
+.deck-title{position:absolute;left:94px;top:320px;font:700 200px/1.02 'Antonio';letter-spacing:-.02em;text-transform:uppercase;z-index:3}
+.deck-title .line{display:block}
+.deck-title .line span{display:inline-block;opacity:0;transform:translateY(60px)}
+.slide.visible .deck-title .line:nth-child(1) span{animation:rise .9s var(--ease) .15s forwards}
+.slide.visible .deck-title .line:nth-child(2) span{animation:rise .9s var(--ease) .3s forwards}
+.slide.visible .deck-title .line:nth-child(3) span{animation:rise .9s var(--ease) .45s forwards}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+.footer-note{font:200 15px/1.5 'Geologica';position:absolute;left:100px;top:960px;color:var(--mute);z-index:3}
+.title-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,#050505 0%,#050505 40%,rgba(5,5,5,.6) 55%,rgba(5,5,5,0) 75%)}
+
+/* stats row */
+.stats{position:absolute;left:100px;right:100px;top:330px;display:grid;grid-template-columns:repeat(4,1fr);z-index:2}
+.stat{border-left:1px solid var(--line);padding:0 0 0 32px}
+.stat .huge{font-size:300px}
+.brandrow{position:absolute;left:100px;right:100px;top:780px;display:flex;justify-content:space-between;z-index:2;font:700 44px/1 'Antonio';text-transform:uppercase;letter-spacing:.02em}
+
+/* funnel */
+.funnel{position:absolute;left:100px;top:330px;width:1720px;z-index:2}
+.bar{display:grid;grid-template-columns:330px 1fr 170px;align-items:center;gap:30px;margin-bottom:34px}
+.bar .lbl{font:400 20px/1.3 'Geologica';letter-spacing:.16em;text-transform:uppercase}
+.bar .track{height:96px;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ease)}
+.bar i.dim{background:rgba(255,255,255,.18)}
+.slide.visible .bar i{transform:scaleX(1)}
+.bar .v{font:700 96px/1 'Antonio';text-align:right}
+
+/* the wall */
+.wall{position:absolute;left:100px;top:300px;display:flex;gap:28px;z-index:2}
+.wcol{width:200px;height:667px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.25);background:#fff}
+.wcol img{position:absolute;left:0;width:200px}
+.veil{position:absolute;left:0;right:0;bottom:0;background:rgba(5,5,5,.72)}
+.wmark{position:absolute;left:0;right:0;border-top:2px solid #fff}
+.wmark b{position:absolute;left:0;top:8px;background:#fff;color:#050505;font:500 13px/1 'Geologica';letter-spacing:.14em;padding:6px 8px;white-space:nowrap}
+
+/* quote */
+.bigq{position:absolute;left:100px;top:300px;width:1500px;font:italic 700 110px/1.02 'Geologica';letter-spacing:-.045em;text-transform:uppercase;z-index:2}
+.bigq-cite{position:absolute;left:100px;top:760px;z-index:2}
+
+/* wireframes */
+.wf .z{border:1px dashed rgba(255,255,255,.3);padding:9px 12px;font:400 13px/1.3 'Geologica';letter-spacing:.12em;text-transform:uppercase}
+.wf .ph{flex:0 0 330px;overflow:hidden;border:none;padding:0;position:relative;background:#1c1c1c}
+.wf .ph img{width:100%;height:100%;object-fit:cover}
+.wf .facts{border:1px solid #fff;padding:12px 14px}
+.wf .facts div{font:400 16px/1.5 'Geologica';display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.12);padding:3px 0}
+.wf .facts div:last-child{border:none}
+.wf .facts span{color:#fff;font-weight:500}
+.wf .cta{background:#fff;color:#050505;text-align:center;font:500 14px/1 'Geologica';letter-spacing:.16em;padding:14px;text-transform:uppercase}
+.wf .t{font:500 18px/1.3 'Geologica'}
+.wf .pr{font:700 30px/1 'Antonio'}
+.wf .pill{display:flex;gap:8px}
+.wf .pill span{border:1px solid rgba(255,255,255,.5);padding:8px 12px;font:400 13px/1 'Geologica';letter-spacing:.1em;text-transform:uppercase}
+.wf .pill span.on{background:#fff;color:#050505}
+.phcap{position:absolute;font:700 44px/1 'Antonio';text-transform:uppercase;z-index:2}
+.phsub{position:absolute;z-index:2}
+
+/* outfits */
+.otf{position:absolute;top:300px;width:520px;z-index:2}
+.otf .lab{display:flex;align-items:baseline;gap:18px;margin-bottom:18px}
+.otf .lab b{font:700 72px/1 'Antonio';color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.6)}
+.otf .lab span{font:700 44px/1 'Antonio';text-transform:uppercase}
+.otf .vis{height:470px;position:relative}
+.tile{position:absolute;overflow:hidden;background:#1c1c1c}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile .tg{position:absolute;left:10px;bottom:10px;background:#fff;color:#050505;font:500 12px/1 'Geologica';letter-spacing:.14em;padding:6px 8px;text-transform:uppercase}
+.dotn{position:absolute;width:34px;height:34px;border-radius:50%;background:#fff;color:#050505;font:500 15px/34px 'Geologica';text-align:center}
+.otf .where{margin-top:18px}
+
+/* versus */
+.vs{position:absolute;left:100px;right:100px;top:330px;display:grid;grid-template-columns:1fr 240px 1fr;align-items:center;z-index:2}
+.vs .side .huge{font-size:190px}
+.vs .side .huge.q2{font-size:120px;line-height:1}
+.vs .mid{text-align:center}
+.vs .mid span{display:inline-block;border:1px solid #fff;border-radius:999px;padding:18px 34px;font:500 26px/1 'Geologica';letter-spacing:.2em}
+.chips{position:absolute;left:100px;right:100px;top:800px;display:flex;gap:14px;flex-wrap:wrap;z-index:2}
+.chips span{border:1px solid rgba(255,255,255,.5);padding:14px 18px;font:400 18px/1 'Geologica';letter-spacing:.12em;text-transform:uppercase}
+
+/* recs */
+.stack{position:absolute;top:320px;width:700px;z-index:2}
+.rrow{height:96px;margin-bottom:22px;border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;padding:0 26px;gap:14px;font:400 22px/1.2 'Geologica';letter-spacing:.06em}
+.rrow i{display:inline-block;width:46px;height:58px;background:rgba(255,255,255,.16);flex:0 0 auto}
+.rrow.x{opacity:.45;text-decoration:line-through}
+.rrow.on{background:#fff;color:#050505;border-color:#fff;font-weight:500}
+.rrow.on i{background:rgba(5,5,5,.14)}
+.arrow{position:absolute;left:880px;top:520px;font:200 120px/1 'Geologica';z-index:2}
+
+/* sizes */
+.sizes{position:absolute;left:100px;top:330px;display:flex;gap:18px;flex-wrap:wrap;width:1150px;z-index:2}
+.sz{width:130px;height:110px;border:1px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;font:700 52px/1 'Antonio';position:relative}
+.sz.x{opacity:.4}
+.sz.x:after{content:"";position:absolute;left:-6px;right:-6px;top:50%;height:2px;background:#fff;transform:rotate(-24deg)}
+.sws{position:absolute;left:100px;top:620px;display:flex;gap:18px;z-index:2}
+.sw{width:110px;height:110px;border-radius:50%;position:relative;border:1px solid rgba(255,255,255,.5)}
+.sw.x:after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:#fff;transform:rotate(-45deg)}
+
+/* brands */
+.brands{position:absolute;left:100px;right:100px;top:300px;display:grid;grid-template-columns:repeat(4,1fr);gap:36px;z-index:2}
+.bcard .im{height:470px;overflow:hidden;background:#1c1c1c;margin-bottom:22px}
+.bcard .im img{width:100%;height:100%;object-fit:cover}
+.bcard h4{font:700 46px/1 'Antonio';text-transform:uppercase;margin-bottom:10px}
+.bcard p{font:300 22px/1.4 'Geologica'}
+
+/* tensions */
+.tens{position:absolute;left:100px;right:100px;top:300px;z-index:2}
+.trow{display:grid;grid-template-columns:330px 1fr 90px 1fr;align-items:center;border-bottom:1px solid rgba(255,255,255,.14);padding:22px 0}
+.trow .q{font:700 40px/1 'Antonio';text-transform:uppercase}
+.trow .a,.trow .b{font:300 26px/1.3 'Geologica'}
+.trow .b{text-align:right}
+.trow .m{text-align:center;font:200 22px/1 'Geologica';letter-spacing:.2em;color:var(--mute)}
+
+/* constraints */
+.cons{position:absolute;left:100px;right:100px;top:310px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;z-index:2}
+.cons .h{font:400 18px/1.4 'Geologica';letter-spacing:.2em;text-transform:uppercase;border-top:1px solid #fff;padding-top:20px;margin-bottom:22px}
+.cons .h.warn{color:var(--warn);border-color:var(--warn)}
+.tagb{display:block;font:700 56px/1.1 'Antonio';text-transform:uppercase;margin-bottom:8px}
+.tagb.o{color:transparent;-webkit-text-stroke:1.2px #fff}
+
+/* steps */
+.steps{position:absolute;left:100px;right:100px;top:360px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;z-index:2}
+.step{border-top:1px solid #fff;padding:30px 40px 0 0;position:relative}
+.step:before{content:"";position:absolute;left:0;top:-9px;width:16px;height:16px;border-radius:50%;background:#fff}
+.step .n{font:700 140px/1 'Antonio';color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.55)}
+.step h4{font:700 60px/1 'Antonio';text-transform:uppercase;margin:16px 0 14px}
+.step p{font:300 24px/1.4 'Geologica'}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal-img{opacity:0;transform:translateY(44px) scale(.97);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.slide.visible .reveal,.slide.visible .reveal-img{opacity:1;transform:none}
+.d1{transition-delay:.15s!important}.d2{transition-delay:.3s!important}.d3{transition-delay:.45s!important}.d4{transition-delay:.6s!important}.d5{transition-delay:.75s!important}.d6{transition-delay:.9s!important}
+.bar:nth-child(2) i{transition-delay:.25s}.bar:nth-child(3) i{transition-delay:.45s}.bar:nth-child(4) i{transition-delay:.65s}
+
+.progress{position:fixed;left:0;top:0;height:2px;background:#fff;z-index:1001;transition:width .5s var(--ease);box-shadow:0 0 12px rgba(255,255,255,.6)}
+.hud{position:fixed;right:28px;bottom:16px;display:flex;align-items:center;gap:18px;z-index:1001}
+.counter{font:500 13px/1 'Geologica';letter-spacing:.3em;color:var(--mute)}
+.counter b{color:#fff;font-weight:500}
+.nav-btn{width:34px;height:34px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:transparent;color:#fff;font:200 16px/1 'Geologica';cursor:pointer;display:flex;align-items:center;justify-content:center}
+.nav-btn:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.deck-controls{display:flex;gap:12px}
+.dot{width:22px;height:2px;background:#2a2a2a;cursor:pointer}
+.dot.on{background:#fff;box-shadow:0 0 10px rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+<div class="deck-viewport"><div class="deck-stage" id="stage">
+
+<!-- 01 TITLE -->
+<section class="slide title active visible">
+  <div class="phone reveal-img d1" style="left:1010px;top:200px"><img src="assets/pdp-boohoo-full.png" alt="boohoo PDP today"></div>
+  <div class="phone reveal-img d2" style="left:1300px;top:120px"><img src="assets/pdp-debs-full.png" alt="Debenhams PDP today"></div>
+  <div class="phone reveal-img d3" style="left:1590px;top:240px"><img src="assets/pdp-karenmillen-full.png" alt="Karen Millen PDP today"></div>
+  <div class="title-shade"></div>
+  <div class="kicker reveal">UX RESEARCH PLAYBACK · PDP REDESIGN 2027</div>
+  <h1 class="deck-title"><span class="line"><span>WHAT THE</span></span><span class="line"><span>BUSINESS</span></span><span class="line"><span>TOLD US</span></span></h1>
+  <div class="footer-note reveal">Stakeholder interviews 08-17.09.26 &nbsp;·&nbsp; Jake Rayner, Paul Dossis, Demi Adesanya</div>
+</section>
+
+<!-- 02 WHO -->
+<section class="slide">
+  <div class="glow g1"></div>
+  <div class="header"><div class="eyebrow reveal">PDP STAKEHOLDER RESEARCH</div><h2 class="slide-title reveal">WHO WE HEARD FROM</h2><div class="rule draw"></div></div>
+  <div class="stats">
+    <div class="stat reveal d1"><div class="huge">6</div><div class="cap">SESSIONS</div></div>
+    <div class="stat reveal d2"><div class="huge">8</div><div class="cap">STAKEHOLDERS</div></div>
+    <div class="stat reveal d3"><div class="huge">5</div><div class="cap">FASCIAS</div></div>
+    <div class="stat reveal d4"><div class="huge">374</div><div class="cap">QUOTED INSIGHTS</div></div>
+  </div>
+  <div class="brandrow reveal d5"><span>Debenhams</span><span>boohoo</span><span>boohooMAN</span><span>PrettyLittleThing</span><span>Karen Millen</span></div>
+</section>
+
+<!-- 03 FUNNEL -->
+<section class="slide">
+  <div class="glow g3"></div>
+  <div class="header"><div class="eyebrow reveal">WHY THE PDP</div><h2 class="slide-title reveal">WHERE IT'S LOST</h2><div class="rule draw"></div></div>
+  <div class="funnel">
+    <div class="bar"><div class="lbl">Sessions</div><div class="track"><i class="dim" style="width:100%"></i></div><div class="v">100</div></div>
+    <div class="bar"><div class="lbl">Reach a product</div><div class="track"><i class="dim" style="width:46%"></i></div><div class="v">46</div></div>
+    <div class="bar"><div class="lbl">Add to bag</div><div class="track"><i style="width:10%"></i></div><div class="v">10</div></div>
+    <div class="bar"><div class="lbl">Purchase</div><div class="track"><i style="width:2%"></i></div><div class="v">2</div></div>
+  </div>
+  <div class="line1 reveal d5">boohooMAN, last 30 days. Most shoppers drop out on the product page, and 43% of web visits start there.</div>
+</section>
+
+<!-- 04 THE WALL -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">FINDING 01 · EVERY STAKEHOLDER</div><h2 class="slide-title reveal">THE PRODUCT IS BURIED</h2><div class="rule draw" style="width:1000px"></div></div>
+  <div class="wall reveal-img d1">
+    <div class="wcol"><img src="assets/pdp-debs-full.png" style="top:0" alt="Debenhams PDP, top quarter"><div class="wmark" style="top:613px"><b>ADD TO BAG</b></div></div>
+    <div class="wcol"><img src="assets/pdp-debs-full.png" style="top:-667px" alt=""><div class="veil" style="top:0"></div></div>
+    <div class="wcol"><img src="assets/pdp-debs-full.png" style="top:-1334px" alt=""><div class="veil" style="top:0"></div></div>
+    <div class="wcol"><img src="assets/pdp-debs-full.png" style="top:-2001px" alt=""><div class="veil" style="top:0"></div></div>
+  </div>
+  <div class="ab reveal d3" style="left:1060px;top:320px"><div class="huge">15+</div><div class="cap" style="margin-top:10px">MODULES AFTER ADD TO BAG</div></div>
+  <div class="ab reveal d4" style="left:1060px;top:640px;width:700px;font:300 26px/1.5 'Geologica'">Ask Deb · Unlimited · Deliver+ · Get it by · Klarna · Subscribe &amp; Save · Handpicked for you · Complete your purchase · At a glance · Description · Details · Delivery · Returns · Manufacturer · Create the look…</div>
+  <div class="ab cap reveal d5" style="left:100px;top:990px">Debenhams PDP today, one mobile page split into four columns</div>
+</section>
+
+<!-- 05 QUOTE -->
+<section class="slide">
+  <div class="glow g2"></div>
+  <div class="bigq reveal d1">"Every message has to go everywhere."</div>
+  <div class="bigq-cite reveal d2"><div class="cap">DEBENHAMS ECOMMERCE</div><div style="font:300 30px/1.4 'Geologica';margin-top:24px;max-width:1100px">Everyone we spoke to wants the page changed.</div></div>
+</section>
+
+<!-- 06 CATEGORIES -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">FINDING 02</div><h2 class="slide-title reveal">ONE SIZE DOESN'T FIT ALL</h2><div class="rule draw"></div></div>
+  <div class="phone wf reveal-img d1" style="left:200px;top:270px;height:640px">
+    <div class="z ph"><img src="assets/boohooman-1.webp" alt=""></div><div class="t">Relaxed jumper</div>
+    <div class="facts"><div>Fit<span>Slim · Reg · Boxy</span></div><div>Fabric<span>100% cotton</span></div><div>Model<span>6'1" · M</span></div></div>
+    <div class="cta">Add to bag</div>
+  </div>
+  <div class="phone wf reveal-img d2" style="left:780px;top:270px;height:640px">
+    <div class="z ph" style="display:flex;align-items:center;justify-content:center;font:700 40px 'Antonio';letter-spacing:.04em">SIDEBOARD</div><div class="t">Oak sideboard</div>
+    <div class="facts"><div>Size<span>150 × 40 × 80 cm</span></div><div>Material<span>Solid oak</span></div><div>Assembly<span>None</span></div><div>Get it by<span>Thu 19 Nov</span></div></div>
+    <div class="cta">Add to bag</div>
+  </div>
+  <div class="phone wf reveal-img d3" style="left:1360px;top:270px;height:640px">
+    <div class="z ph" style="display:flex;align-items:center;justify-content:center;font:700 40px 'Antonio';letter-spacing:.04em">FOUNDATION</div><div class="t">Skin tint SPF 30</div>
+    <div class="facts"><div>Shade<span>Light → Deep</span></div><div>Size<span>30 ml</span></div><div>Skin type<span>Dry · Combo</span></div></div>
+    <div class="cta">Add to bag</div>
+  </div>
+  <div class="phcap reveal d4" style="left:200px;top:935px">Fashion</div>
+  <div class="phcap reveal d5" style="left:780px;top:935px">Home</div>
+  <div class="phcap reveal d6" style="left:1360px;top:935px">Beauty</div>
+</section>
+
+<!-- 07 OUTFITS -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">FINDING 03 · EVERY FASHION BRAND</div><h2 class="slide-title reveal">OUTFITS SELL</h2><div class="rule draw"></div></div>
+  <div class="otf reveal d1" style="left:100px">
+    <div class="lab"><b>A</b><span>Matching set</span></div>
+    <div class="vis">
+      <div class="tile" style="left:0;top:0;width:520px;height:400px"><img src="assets/plt-1.webp" alt=""></div>
+      <div class="wf" style="position:absolute;left:0;top:420px;display:flex;gap:8px"><div class="pill"><span class="on">Top</span><span>Bottom</span><span>The set</span></div></div>
+    </div>
+    <div class="cap where">ABOVE ADD TO BAG · KM · BOOHOO · MAN</div>
+  </div>
+  <div class="otf reveal d2" style="left:700px">
+    <div class="lab"><b>B</b><span>Shop the look</span></div>
+    <div class="vis">
+      <div class="tile" style="left:0;top:0;width:320px;height:470px"><img src="assets/boohooman-2.webp" alt=""><div class="dotn" style="left:150px;top:120px">1</div><div class="dotn" style="left:120px;top:300px">2</div></div>
+      <div class="tile" style="left:340px;top:0;width:180px;height:225px"><img src="assets/boohooman-3.webp" alt=""><div class="tg">1</div></div>
+      <div class="tile" style="left:340px;top:245px;width:180px;height:225px;display:flex;align-items:center;justify-content:center;font:700 30px 'Antonio';letter-spacing:.06em">JOGGERS<div class="tg">2</div></div>
+    </div>
+    <div class="cap where">THE EXACT ITEMS IN THE PHOTO · MAN · BOOHOO</div>
+  </div>
+  <div class="otf reveal d3" style="left:1300px">
+    <div class="lab"><b>C</b><span>Ways to style</span></div>
+    <div class="vis">
+      <div class="tile" style="left:0;top:0;width:165px;height:470px"><img src="assets/karenmillen-1.webp" alt=""><div class="tg">Work</div></div>
+      <div class="tile" style="left:177px;top:0;width:165px;height:470px"><img src="assets/karenmillen-2.webp" alt=""><div class="tg">Weekend</div></div>
+      <div class="tile" style="left:354px;top:0;width:165px;height:470px"><img src="assets/karenmillen-3.webp" alt=""><div class="tg">Wedding</div></div>
+    </div>
+    <div class="cap where">LOOKS BY OCCASION · KM · DEBENHAMS</div>
+  </div>
+  <div class="line1 reveal d5" style="bottom:80px">A Karen Millen outfit test lifted AOV "massively". Today every outfit is built by hand.</div>
+</section>
+
+<!-- 08 ANCILLARIES -->
+<section class="slide">
+  <div class="glow g1"></div>
+  <div class="header"><div class="eyebrow reveal">FINDING 04 · DELIVER+ AND OTHER SERVICES</div><h2 class="slide-title reveal">PROTECT IT, TEST IT</h2><div class="rule draw"></div></div>
+  <div class="vs">
+    <div class="side reveal d1"><div class="huge">~25%</div><div class="cap" style="margin-top:12px">OF DEBENHAMS ORDERS ADD SEEL · A BIG SHARE OF PROFIT</div></div>
+    <div class="mid reveal d2"><span>TEST</span></div>
+    <div class="side reveal d3" style="text-align:right"><div class="huge q2">"IRRELEVANT<br>AT PDP"</div><div class="cap" style="margin-top:12px">KAREN MILLEN · IT PUTS GERMAN SHOPPERS OFF, SAYS BOOHOOMAN</div></div>
+  </div>
+  <div class="chips reveal d4"><span>Compact, below Add to bag</span><span>Bag or checkout only</span><span>By category</span><span>By brand</span><span>By region</span><span>Hidden for members</span></div>
+  <div class="line1 reveal d5" style="bottom:80px">No contract says where it has to go, so we test placements and watch the attach rate.</div>
+</section>
+
+<!-- 09 RECS -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">FINDING 05 · RECOMMENDATIONS</div><h2 class="slide-title reveal">FOUR ZONES BECOME THREE</h2><div class="rule draw"></div></div>
+  <div class="stack reveal d1" style="left:100px">
+    <div class="rrow x"><i></i><i></i><i></i>Handpicked for you</div>
+    <div class="rrow x"><i></i><i></i><i></i>We think you'll like</div>
+    <div class="rrow x"><i></i><i></i><i></i>Sponsored</div>
+    <div class="rrow x"><i></i><i></i><i></i>Recently viewed + SEO links</div>
+  </div>
+  <div class="arrow reveal d2">→</div>
+  <div class="stack reveal d3" style="left:1080px;width:740px">
+    <div class="rrow on"><i></i><i></i><i></i>Complete it</div>
+    <div class="rrow on"><i></i><i></i><i></i>More like this</div>
+    <div class="rrow on"><i></i><i></i><i></i>Recently viewed</div>
+  </div>
+  <div class="line1 reveal d4">The sponsored carousel went live without a test and was the worst performer. Each label should say what the zone does.</div>
+</section>
+
+<!-- 10 DATA -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">FINDING 06 · SIZE, FIT, COLOUR</div><h2 class="slide-title reveal">THE DATA IS WRONG</h2><div class="rule draw"></div></div>
+  <div class="sizes reveal d1">
+    <div class="sz x">30</div><div class="sz x">32</div><div class="sz x">34</div><div class="sz">S</div><div class="sz">M</div><div class="sz">L</div><div class="sz x">30R</div>
+  </div>
+  <div class="sws reveal d2">
+    <div class="sw" style="background:#111"></div><div class="sw x" style="background:#6b6b5e"></div><div class="sw x" style="background:#8a3b2c"></div><div class="sw" style="background:#d8d2c4"></div><div class="sw x" style="background:#2e3a52"></div>
+  </div>
+  <div class="ab reveal d3" style="left:1300px;top:330px;width:520px">
+    <div class="cap">WHAT SHOPPERS SEE</div>
+    <p style="font:300 28px/1.45 'Geologica';margin-top:16px">Sizes we never bought, old size codes next to new ones, and crossed-out colours that won't come back.</p>
+    <div class="cap" style="margin-top:44px">WHAT THEY CAN'T SEE</div>
+    <p style="font:300 28px/1.45 'Geologica';margin-top:16px">That the same hoodie comes in slim, boxy, Plus and Tall.</p>
+  </div>
+  <div class="line1 reveal d4">Most of this gets fixed in the product data before the page.</div>
+</section>
+
+<!-- 11 SAY IT ONCE -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">FINDING 07 · DELIVERY AND RETURNS</div><h2 class="slide-title reveal">SAY IT ONCE</h2><div class="rule draw"></div></div>
+  <div class="ab reveal d1" style="left:100px;top:260px"><div style="font:700 560px/1 'Antonio';color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.55)">20</div><div class="cap" style="margin-top:28px">PLACES DELIVERY SHOWS UP TODAY</div></div>
+  <div class="ab reveal d2" style="left:880px;top:470px;font:200 120px/1 'Geologica'">→</div>
+  <div class="ab reveal d3" style="left:1150px;top:260px"><div style="font:700 560px/1 'Antonio'">1</div><div class="cap" style="margin-top:28px">MODULE, WITH A "GET IT BY" DATE</div></div>
+</section>
+
+<!-- 12 APP -->
+<section class="slide">
+  <div class="glow g3"></div>
+  <div class="header"><div class="eyebrow reveal">FINDING 08</div><h2 class="slide-title reveal">APP FIRST IN SALES, LAST IN FEATURES</h2><div class="rule draw"></div></div>
+  <div class="phone reveal-img d1" style="left:1380px;top:250px;height:740px"><img src="assets/pdp-boohoo-full.png" alt="boohoo mobile PDP"></div>
+  <div class="ab reveal d2" style="left:100px;top:300px"><div class="huge">50-60%</div><div class="cap" style="margin-top:12px">OF BOOHOO + PLT SALES ARE ON APP</div></div>
+  <div class="ab reveal d3" style="left:100px;top:600px"><div class="huge">~80%</div><div class="cap" style="margin-top:12px">OF KAREN MILLEN IS MOBILE · ITS APP CONVERTS BEST</div></div>
+  <div class="ab reveal d4" style="left:820px;top:640px;border:1px solid #fff;border-radius:999px;padding:20px 30px;font:500 22px/1 'Geologica';letter-spacing:.14em">#1 ASK · APPLE PAY ON APP PDP</div>
+</section>
+
+<!-- 13 BRANDS -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">BY FASCIA</div><h2 class="slide-title reveal">WHAT EACH BRAND NEEDS</h2><div class="rule draw"></div></div>
+  <div class="brands">
+    <div class="bcard reveal d1"><div class="im"><img src="assets/debenhams-1.webp" alt=""></div><h4>Debenhams</h4><p>Answer the questions each category raises, straight away.</p></div>
+    <div class="bcard reveal d2"><div class="im"><img src="assets/boohooman-1.webp" alt=""></div><h4>boohooMAN</h4><p>"Just buy this and check out."</p></div>
+    <div class="bcard reveal d3"><div class="im"><img src="assets/boohoo-1.webp" alt=""></div><h4>boohoo · PLT</h4><p>Built for the app and for shoppers arriving from social.</p></div>
+    <div class="bcard reveal d4"><div class="im"><img src="assets/karenmillen-4.webp" alt=""></div><h4>Karen Millen</h4><p>Justify the price. Look like Reiss.</p></div>
+  </div>
+</section>
+
+<!-- 14 TENSIONS -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">WHERE STAKEHOLDERS DISAGREE</div><h2 class="slide-title reveal">FIVE THINGS TO TEST</h2><div class="rule draw"></div></div>
+  <div class="tens">
+    <div class="trow reveal d1"><div class="q">Deliver+</div><div class="a">Protect the profit</div><div class="m">VS</div><div class="b">Move it off the PDP</div></div>
+    <div class="trow reveal d2"><div class="q">Recs</div><div class="a">Inspire with alternatives</div><div class="m">VS</div><div class="b">Same look only</div></div>
+    <div class="trow reveal d3"><div class="q">Reviews</div><div class="a">Higher up the page</div><div class="m">VS</div><div class="b">Not yet</div></div>
+    <div class="trow reveal d4"><div class="q">Gallery</div><div class="a">Full bleed</div><div class="m">VS</div><div class="b">Peek to save height</div></div>
+    <div class="trow reveal d5"><div class="q">Checkout</div><div class="a">Fewer buttons</div><div class="m">VS</div><div class="b">Apple Pay express</div></div>
+  </div>
+</section>
+
+<!-- 15 CONSTRAINTS -->
+<section class="slide" style="background-color:#1b1b1b">
+  <div class="header"><div class="eyebrow reveal">AS STATED · NOT YET CONFIRMED BY LEGAL</div><h2 class="slide-title reveal">WHAT CAN MOVE</h2><div class="rule draw"></div></div>
+  <div class="cons">
+    <div class="reveal d1"><div class="h">Must stay</div><span class="tagb">PayPal</span><span class="tagb">US pricing policy</span><span class="tagb">AI image label</span></div>
+    <div class="reveal d2"><div class="h">Free to move</div><span class="tagb o">Deliver+</span><span class="tagb o">Memberships</span><span class="tagb o">Recommendations</span></div>
+    <div class="reveal d3"><div class="h warn">To check</div><span class="tagb o">BNPL box</span><span class="tagb o">Fibre content</span><span class="tagb o">Open description (SEO)</span></div>
+  </div>
+</section>
+
+<!-- 16 DECISION ZONE -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">THE PRINCIPLE</div><h2 class="slide-title reveal">THE DECISION ZONE</h2><div class="rule draw" style="width:900px"></div></div>
+  <div class="phone reveal-img d1" style="left:100px;top:270px;height:720px"><img src="assets/pdp-debs-full.png" alt="Today's PDP"></div>
+  <div class="phone wf reveal-img d2" style="left:560px;top:270px;height:720px">
+    <div class="z ph" style="flex:0 0 300px"><img src="assets/debenhams-1.webp" alt=""></div>
+    <div class="t">Coast · Velvet mini dress</div><div class="pr">£179.00</div>
+    <div class="pill"><span class="on">8</span><span>10</span><span>12</span><span>14</span><span>16</span></div>
+    <div class="z">Key facts · Get it by Thu</div>
+    <div class="cta">Add to bag</div>
+    <div class="z" style="opacity:.45">Services · looks · recommendations ↓</div>
+  </div>
+  <div class="phcap reveal d3" style="left:100px;top:1010px;font-size:28px">Today</div>
+  <div class="phcap reveal d3" style="left:560px;top:1010px;font-size:28px">Proposed</div>
+  <div class="ab reveal d4" style="left:1060px;top:300px;width:760px">
+    <p style="font:300 40px/1.3 'Geologica';letter-spacing:-.02em">Above Add to bag, only what helps you choose <b style="font-weight:500">this</b> product.</p>
+    <p style="font:300 40px/1.3 'Geologica';letter-spacing:-.02em;margin-top:30px">Everything else goes below, and each module there has an owner and a metric.</p>
+  </div>
+</section>
+
+<!-- 17 NEXT -->
+<section class="slide">
+  <div class="glow g2"></div>
+  <div class="header"><div class="eyebrow reveal">WHAT HAPPENS NEXT</div><h2 class="slide-title reveal">CONCEPTS, THEN TESTS</h2><div class="rule draw"></div></div>
+  <div class="steps">
+    <div class="step reveal d1"><div class="n">01</div><h4>Concepts</h4><p>Working prototypes for every brand, on mobile, desktop and app.</p></div>
+    <div class="step reveal d2"><div class="n">02</div><h4>Playback</h4><p>Each brand clicks through the concepts and tells us what's wrong.</p></div>
+    <div class="step reveal d3"><div class="n">03</div><h4>Tests</h4><p>A test roadmap with Becca. Attach rates can't drop.</p></div>
+  </div>
+  <div class="line1 reveal d4">The quotes and numbers behind each slide are in the report.</div>
+</section>
+
+</div></div>
+<div class="progress" id="prog"></div>
+<div class="hud">
+  <button class="nav-btn" id="prev" aria-label="Previous slide">&#8249;</button>
+  <div class="counter" id="ctr"></div>
+  <button class="nav-btn" id="next" aria-label="Next slide">&#8250;</button>
+</div>
+<div class="deck-controls" id="dots"></div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let i=0;
+const dots=document.getElementById('dots'),prog=document.getElementById('prog'),ctr=document.getElementById('ctr');
+slides.forEach((_,n)=>{const d=document.createElement('div');d.className='dot'+(n===0?' on':'');d.onclick=e=>{e.stopPropagation();show(n)};dots.appendChild(d)});
+function paint(){prog.style.width=((i+1)/slides.length*100)+'%';ctr.innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b> / '+String(slides.length).padStart(2,'0')}
+function show(n){
+  slides[i].classList.remove('active','visible');dots.children[i].classList.remove('on');
+  i=(n+slides.length)%slides.length;
+  slides[i].classList.add('active');dots.children[i].classList.add('on');paint();
+  try{history.replaceState(null,'','#'+(i+1))}catch(e){}
+  requestAnimationFrame(()=>requestAnimationFrame(()=>slides[i].classList.add('visible')));
+}
+document.getElementById('prev').onclick=e=>{e.stopPropagation();show(i-1)};
+document.getElementById('next').onclick=e=>{e.stopPropagation();show(i+1)};
+addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')show(i+1);if(e.key==='ArrowLeft')show(i-1)});
+addEventListener('click',()=>show(i+1));
+function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);const st=document.getElementById('stage');st.style.transform=`translate(${(innerWidth-1920*s)/2}px,${(innerHeight-1080*s)/2}px) scale(${s})`}
+addEventListener('resize',fit);fit();paint();
+const h=parseInt(location.hash.slice(1),10);
+if(h>=2&&h<=slides.length){show(h-1)}else{requestAnimationFrame(()=>slides[0].classList.add('visible'))}
+</script>
+</body>
+</html>
