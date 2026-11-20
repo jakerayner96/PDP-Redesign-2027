@@ -497,6 +497,47 @@ p,ul.b,blockquote,.so,.lede{max-width:none}
 @media print{#numbers .grid{grid-template-columns:repeat(4,1fr)}#numbers .fact-v{font-size:44px}}
 
 .fact-src a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+h3{display:block;margin:44px 0 14px}
+.meta a{color:#fff}
+.who-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.who-grid{grid-template-columns:1fr}}
+.fact-src{font-size:14px;color:var(--mute);margin-top:4px}
+blockquote{font-style:italic}
+blockquote cite{font-style:normal}
+.so p{margin-bottom:12px}.so p:last-child{margin-bottom:0}
+.finding p+ul.b{margin-top:4px}
+/* A/B wireframes */
+.ab{margin:28px 0 8px}
+.ab-cat{margin-bottom:56px}
+.ab-cat h4{font:400 19px/1.35 'Geologica';letter-spacing:.12em;text-transform:uppercase}
+.ab-res{font-size:15px;margin:6px 0 0}
+.ab-scroll{overflow-x:auto;margin-top:16px;padding-bottom:6px}
+.ab-row{display:grid;grid-template-columns:repeat(4,minmax(210px,1fr));gap:12px;min-width:880px}
+.ab-col h5{font:400 17px/1.3 'Geologica';display:flex;gap:8px;align-items:center;margin:0}
+.ab-won{font:400 11px/1 'Geologica';background:#fff;color:#050505;padding:4px 8px}
+.ab-cap{font-size:12px;line-height:1.4;min-height:34px;margin:10px 0}
+.ab-page{background:#050505;border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:3px}
+.ab-page.won{border-color:rgba(255,255,255,.9)}
+.ab-m{height:24px;flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 8px;font:300 12px/1 'Geologica';color:#050505;white-space:nowrap;overflow:hidden}
+.ab-m i{font-style:normal;font-weight:200;font-size:10px}
+.ab-m.top{height:20px;background:rgba(255,255,255,.07);color:#fff;font-size:11px}
+.ab-m.hero{height:80px;justify-content:center}
+.ab-m.plain{background:rgba(255,255,255,.07);color:#fff}
+.ab-m.fade{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.4)}
+.ab-gap{height:5px}
+.ab-note{font-size:13px}
+footer:empty{padding:0;border:0;margin-top:40px}
+@media print{.ab-scroll{overflow:visible}.ab-row{min-width:0}.ab-cat{break-inside:avoid}}
+
+p,ul.b,blockquote,.so,.lede{max-width:none}
+.brands{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.brands{grid-template-columns:1fr}}
+.ab-m{font-size:11.5px}
+@media print{.ab-m{font-size:9px;gap:5px;padding:0 5px}.ab-m.top{font-size:8.5px}.ab-cap{font-size:10px}}
+@media print{#numbers .grid{grid-template-columns:repeat(4,1fr)}#numbers .fact-v{font-size:44px}}
+
+.fact-src a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -548,7 +589,7 @@ p,ul.b,blockquote,.so,.lede{max-width:none}
 <div class="finding"><div class="n">09</div><div><h4>Recommendations: fewer zones, each with one job</h4><p>PDPs can carry up to four product carousels plus an SEO block. The same product sometimes appears more than once in a single carousel, and some recommendations lead customers away into categories that have nothing to do with what they're looking at. On Debenhams, the sponsored products carousel went live without a test, and when it was tested later the original version was the worst performer. On boohoo, "Handpicked for you" has worked well. boohoo and PLT asked whether we need four zones at all vs one continuous reccs component that is more personalised/optimised for the individual shopper.</p><p>Each brand also wants something different from recommendations. boohooMAN wants more of the same look, not alternatives. Debenhams wants inspiration and products that go with the item. boohoo and PLT want a mix, but put more emphasis on which specific products were shown - their own-brand products first, then other group brands, then marketplace, with plenty more to browse after that - rather than the format of the recommendations.</p><div class="so"><b>For consideration</b><p>Test different configurations and orders of PDP zones down the page by job rather than by our existing component format - things that go well with this product (complete the look, matching sets), then things to buy in addition to it or instead of it. This can be product or services. Then design and implement the components to support that. Each zone label should clearly describe what it does, if required at all. Products to be deduped, atomic tests on component style (carousel or grid, number of rows) and the tech/logic powering it independently. Every zone continually tracked and optimised.</p><p>Further explorations into personalisation to make reccomendations hyper relevant to the user should also be considered, espcially for PLT and Boohoo.</p></div></div></div>
 <div class="finding"><div class="n">10</div><div><h4>Who sees what should depend on the customer</h4><p>boohoo and PLT want recommendations based on what the customer is looking at, what they've looked at before and what we think they'll want to buy. Premier and Royalty members currently see messages that don't apply to them: "free returns in 21 days" or "next day delivery from £5.99" isnt as relevant to a Premier/Royalty customer, because they already get free next-day delivery. Debenhams wants to stop repeating messages the customer has already seen, such as a code from the banner they clicked, and to stop showing home and garden offers to someone who only buys beauty. boohooMAN wants to change what is prominent by region.</p><div class="so"><b>For consideration</b><p>Decide for each module what changes with who is looking: member status, browsing and purchase history, category and region. Members see their benefits, not the upsell. Personalisation decides what fills each zone and what is populated on page on a per-user-type and per-region basis.</p></div></div></div>
 <div class="finding"><div class="n">11</div><div><h4>Social proof should come from what customers do</h4><p>Debenhams wants reviews moved up from the bottom of the page and made richer: fit and quality for fashion, skin type for beauty. boohooMAN says German shoppers want ratings, reviews and secure payments before they trust the product or brand. boohoo and PLT have no reviews: the contract was renewed without boohoo, however products don't live long enough to collect them, and boohoo reviews from Debenhams customers averaged 2.8 to 3.2. They would rather show wishlist counts from our own data.</p><div class="so"><b>For consideration</b><p>Optimise reviews UI, make reviews a movable module each brand can switch on and place, with fit and quality information surfaced where we have it. Test wishlist counts as social proof on boohoo and PLT. Reconsider taggstar UI, placement and frequency, and reposition as secondary to the above for social proof.</p></div></div></div>
-<div class="finding"><div class="n">12</div><div><h4>App first in revenue, last in features</h4><p>50 to 60% of boohoo and PLT sales are on app. Karen Millen is about 80% mobile and its app converts best. The app still gets changes months after web. The brands are aware there are resourcing and tehcnical challenges that lead to this, but the ask remains. Apple Pay express on the app PDP was the single most urgent ask from boohooMAN.</p><div class="so"><b>For consideration</b><p>Design web and app together from the same components (some native nuance will still exist), ship and measure on web, then move to app.</p></div></div></div>
+<div class="finding"><div class="n">12</div><div><h4>App first in revenue, last in features</h4><p>50 to 60% of boohoo and PLT sales are on app. Almost 80% of Karen Millen shopping is on app and mobile web combined and the app converts best. The app still gets changes months after web. The brands are aware there are resourcing and tehcnical challenges that lead to this, but the ask remains. Apple Pay express on the app PDP was the single most urgent ask from boohooMAN.</p><div class="so"><b>For consideration</b><p>Design web and app together from the same components (some native nuance will still exist), ship and measure on web, then move to app.</p></div></div></div>
 <div class="finding"><div class="n">13</div><div><h4>We can't see what works</h4><p>The brands reported that there is no robust per-widget reporting and no PDP funnel, the move from PowerBI to Looker has left gaps, and the heatmap and session-replay tool the business used to have (Contentsquare) has gone. When trade is down, teams are left with no levers other than to run promotions and give away margin.</p><div class="so"><b>For consideration</b><p>Ship every module with tracking and a test plan, keep a test register, and bring back heatmaps and session replay (Contentsquare or an alternative).</p></div></div></div>
 
 </section>
