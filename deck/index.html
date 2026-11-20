@@ -218,6 +218,25 @@ img{max-width:none}
 .deck-controls{display:flex;gap:12px}
 .dot{width:22px;height:2px;background:#2a2a2a;cursor:pointer}
 .dot.on{background:#fff;box-shadow:0 0 10px rgba(255,255,255,.6)}
+
+.flist{position:absolute;left:100px;right:100px;top:300px;display:grid;grid-template-columns:1fr 1fr;column-gap:80px;z-index:2}
+.flist div{display:flex;gap:26px;align-items:baseline;border-top:1px solid rgba(255,255,255,.18);padding:15px 0}
+.flist b{font:700 34px/1 'Antonio';color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.6);flex:0 0 52px}
+.flist span{font:300 25px/1.3 'Geologica'}
+.plist{position:absolute;left:100px;right:100px;top:300px;z-index:2;counter-reset:p}
+.plist div{display:flex;gap:30px;align-items:baseline;border-top:1px solid rgba(255,255,255,.18);padding:17px 0;font:300 27px/1.35 'Geologica'}
+.plist div:before{counter-increment:p;content:counter(p,decimal-leading-zero);font:700 34px/1 'Antonio';color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.6);flex:0 0 52px}
+.abw{position:absolute;left:100px;right:100px;top:270px;display:grid;gap:26px;z-index:2}
+.abw .ch{font:700 40px/1 'Antonio';text-transform:uppercase;display:flex;gap:14px;align-items:center}
+.abw .won{font:500 15px/1 'Geologica';letter-spacing:.14em;background:#fff;color:#050505;padding:7px 10px}
+.abw .cp{font:300 16px/1.3 'Geologica';margin:10px 0 12px;min-height:21px}
+.abw .pg{border:1px solid rgba(255,255,255,.18);padding:10px}
+.abw .pg.w{border-color:#fff}
+.abw .fx{height:40px;background:rgba(255,255,255,.08);font:400 13px/1.2 'Geologica';letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;padding:0 12px;margin-bottom:8px}
+.abw .m{height:27px;margin-bottom:3px;font:300 15px/27px 'Geologica';padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#050505}
+.abw .m i{font-style:normal;font-weight:200;font-size:12px;margin-right:10px}
+.abw .m.pl{background:rgba(255,255,255,.08);color:#fff}
+.abw .m.fd{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.4);line-height:25px}
 </style>
 </head>
 <body>
@@ -240,8 +259,8 @@ img{max-width:none}
   <div class="agenda">
     <div class="step reveal d1"><div class="n">01</div><h4>Research playback</h4><p>What eight stakeholders across five brands told us.</p></div>
     <div class="step reveal d2"><div class="n">02</div><h4>Benchmarks</h4><p>The sites they pointed to, and what to borrow.</p></div>
-    <div class="step reveal d3"><div class="n">03</div><h4>What we've tested</h4><p>The A/B tests on module order since the interviews.</p></div>
-    <div class="step reveal d4"><div class="n">04</div><h4>Next steps</h4><p>From here to a prototype of the redesigned PDP.</p></div>
+    <div class="step reveal d3"><div class="n">03</div><h4>What we've tested</h4><p>The A/B tests on module order in Fashion, Home and Beauty.</p></div>
+    <div class="step reveal d4"><div class="n">04</div><h4>Next steps</h4><p>Concepts, workshops and a test plan.</p></div>
   </div>
 </section>
 
@@ -275,7 +294,13 @@ img{max-width:none}
     <div class="bar"><div class="lbl">Add to bag</div><div class="track"><i style="width:10%"></i></div><div class="v">10</div></div>
     <div class="bar"><div class="lbl">Purchase</div><div class="track"><i style="width:2%"></i></div><div class="v">2</div></div>
   </div>
-  <div class="line1 reveal d5">boohooMAN, last 30 days. Most shoppers drop out on the product page, and 43% of web visits start there.</div>
+  <div class="line1 reveal d5">boohooMAN. On Karen Millen, PDP abandonment is between 60 and 80%.</div>
+</section>
+
+<!-- FINDINGS OVERVIEW -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">THE REPORT</div><h2 class="slide-title reveal">13 FINDINGS</h2><div class="rule draw"></div></div>
+  <div class="flist reveal d1"><div><b>01</b><span>The page is cluttered, and the clutter hides what sells</span></div><div><b>02</b><span>Different products need different pages</span></div><div><b>03</b><span>Bigger imagery, more video</span></div><div><b>04</b><span>Premium has to put the product first and justify the price</span></div><div><b>05</b><span>Size, fit and colour problems start in the product data</span></div><div><b>06</b><span>Too much or too little - delivery, returns, promotions, payments</span></div><div><b>07</b><span>Ancillary services make money and take up a lot of the page</span></div><div><b>08</b><span>Outfits and sets are the biggest growth idea</span></div><div><b>09</b><span>Recommendations: fewer zones, each with one job</span></div><div><b>10</b><span>Who sees what should depend on the customer</span></div><div><b>11</b><span>Social proof should come from what customers do</span></div><div><b>12</b><span>App first in revenue, last in features</span></div><div><b>13</b><span>We can&#x27;t see what works</span></div></div>
 </section>
 
 <!-- 04 THE WALL -->
@@ -296,12 +321,12 @@ img{max-width:none}
 <section class="slide">
   <div class="glow g2"></div>
   <div class="bigq reveal d1">"Every message has to go everywhere."</div>
-  <div class="bigq-cite reveal d2"><div class="cap">DEBENHAMS ECOMMERCE</div><div style="font:300 30px/1.4 'Geologica';margin-top:24px;max-width:1100px">Everyone we spoke to wants the page changed.</div></div>
+  <div class="bigq-cite reveal d2"><div class="cap">DEBENHAMS</div><div style="font:300 30px/1.4 'Geologica';margin-top:24px;max-width:1100px">Every stakeholder raised this without being asked.</div></div>
 </section>
 
 <!-- 06 CATEGORIES -->
 <section class="slide">
-  <div class="header"><div class="eyebrow reveal">FINDING 02</div><h2 class="slide-title reveal">ONE SIZE DOESN'T FIT ALL</h2><div class="rule draw"></div></div>
+  <div class="header"><div class="eyebrow reveal">FINDING 02</div><h2 class="slide-title reveal">DIFFERENT PRODUCTS, DIFFERENT PAGES</h2><div class="rule draw"></div></div>
   <div class="phone wf reveal-img d1" style="left:200px;top:270px;height:640px">
     <div class="z ph"><img src="assets/boohooman-1.jpg" alt=""></div><div class="t">Relaxed jumper</div>
     <div class="facts"><div>Fit<span>Slim · Reg · Boxy</span></div><div>Fabric<span>100% cotton</span></div><div>Model<span>6'1" · M</span></div></div>
@@ -322,72 +347,21 @@ img{max-width:none}
   <div class="phcap reveal d6" style="left:1360px;top:935px">Beauty</div>
 </section>
 
-<!-- 07 OUTFITS -->
-<section class="slide">
-  <div class="header"><div class="eyebrow reveal">FINDING 03 · EVERY FASHION BRAND</div><h2 class="slide-title reveal">OUTFITS SELL</h2><div class="rule draw"></div></div>
-  <div class="otf reveal d1" style="left:100px">
-    <div class="lab"><b>A</b><span>Matching set</span></div>
-    <div class="vis">
-      <div class="tile" style="left:0;top:0;width:520px;height:400px"><img src="assets/plt-1.jpg" alt=""></div>
-      <div class="wf" style="position:absolute;left:0;top:420px;display:flex;gap:8px"><div class="pill"><span class="on">Top</span><span>Bottom</span><span>The set</span></div></div>
-    </div>
-    <div class="cap where">ABOVE ADD TO BAG · KM · BOOHOO · MAN</div>
-  </div>
-  <div class="otf reveal d2" style="left:700px">
-    <div class="lab"><b>B</b><span>Shop the look</span></div>
-    <div class="vis">
-      <div class="tile" style="left:0;top:0;width:320px;height:470px"><img src="assets/boohooman-2.jpg" alt=""><div class="dotn" style="left:150px;top:120px">1</div><div class="dotn" style="left:120px;top:300px">2</div></div>
-      <div class="tile" style="left:340px;top:0;width:180px;height:225px"><img src="assets/boohooman-3.jpg" alt=""><div class="tg">1</div></div>
-      <div class="tile" style="left:340px;top:245px;width:180px;height:225px;display:flex;align-items:center;justify-content:center;font:700 30px 'Antonio';letter-spacing:.06em">JOGGERS<div class="tg">2</div></div>
-    </div>
-    <div class="cap where">THE EXACT ITEMS IN THE PHOTO · MAN · BOOHOO</div>
-  </div>
-  <div class="otf reveal d3" style="left:1300px">
-    <div class="lab"><b>C</b><span>Ways to style</span></div>
-    <div class="vis">
-      <div class="tile" style="left:0;top:0;width:165px;height:470px"><img src="assets/karenmillen-1.jpg" alt=""><div class="tg">Work</div></div>
-      <div class="tile" style="left:177px;top:0;width:165px;height:470px"><img src="assets/karenmillen-2.jpg" alt=""><div class="tg">Weekend</div></div>
-      <div class="tile" style="left:354px;top:0;width:165px;height:470px"><img src="assets/karenmillen-3.jpg" alt=""><div class="tg">Wedding</div></div>
-    </div>
-    <div class="cap where">LOOKS BY OCCASION · KM · DEBENHAMS</div>
-  </div>
-  <div class="line1 reveal d5" style="bottom:80px">A Karen Millen outfit test lifted AOV "massively". Today every outfit is built by hand.</div>
-</section>
 
-<!-- 08 ANCILLARIES -->
-<section class="slide">
-  <div class="glow g1"></div>
-  <div class="header"><div class="eyebrow reveal">FINDING 04 · DELIVER+ AND OTHER SERVICES</div><h2 class="slide-title reveal">PROTECT IT, TEST IT</h2><div class="rule draw"></div></div>
-  <div class="vs">
-    <div class="side reveal d1"><div class="huge">~25%</div><div class="cap" style="margin-top:12px">OF DEBENHAMS ORDERS ADD SEEL · A BIG SHARE OF PROFIT</div></div>
-    <div class="mid reveal d2"><span>TEST</span></div>
-    <div class="side reveal d3" style="text-align:right"><div class="huge q2">"IRRELEVANT<br>AT PDP"</div><div class="cap" style="margin-top:12px">KAREN MILLEN · IT PUTS GERMAN SHOPPERS OFF, SAYS BOOHOOMAN</div></div>
-  </div>
-  <div class="chips reveal d4"><span>Compact, below Add to bag</span><span>Bag or checkout only</span><span>By category</span><span>By brand</span><span>By region</span><span>Hidden for members</span></div>
-  <div class="line1 reveal d5" style="bottom:80px">No contract says where it has to go, so we test placements and watch the attach rate.</div>
-</section>
 
-<!-- 09 RECS -->
-<section class="slide">
-  <div class="header"><div class="eyebrow reveal">FINDING 05 · RECOMMENDATIONS</div><h2 class="slide-title reveal">FOUR ZONES BECOME THREE</h2><div class="rule draw"></div></div>
-  <div class="stack reveal d1" style="left:100px">
-    <div class="rrow x"><i></i><i></i><i></i>Handpicked for you</div>
-    <div class="rrow x"><i></i><i></i><i></i>We think you'll like</div>
-    <div class="rrow x"><i></i><i></i><i></i>Sponsored</div>
-    <div class="rrow x"><i></i><i></i><i></i>Recently viewed + SEO links</div>
-  </div>
-  <div class="arrow reveal d2">→</div>
-  <div class="stack reveal d3" style="left:1080px;width:740px">
-    <div class="rrow on"><i></i><i></i><i></i>Complete it</div>
-    <div class="rrow on"><i></i><i></i><i></i>More like this</div>
-    <div class="rrow on"><i></i><i></i><i></i>Recently viewed</div>
-  </div>
-  <div class="line1 reveal d4">The sponsored carousel went live without a test and was the worst performer. Each label should say what the zone does.</div>
-</section>
+
+
+
+
+
+
+
+
+
 
 <!-- 10 DATA -->
 <section class="slide">
-  <div class="header"><div class="eyebrow reveal">FINDING 06 · SIZE, FIT, COLOUR</div><h2 class="slide-title reveal">THE DATA IS WRONG</h2><div class="rule draw"></div></div>
+  <div class="header"><div class="eyebrow reveal">FINDING 05 · SIZE, FIT, COLOUR</div><h2 class="slide-title reveal">IT STARTS IN THE DATA</h2><div class="rule draw"></div></div>
   <div class="sizes reveal d1">
     <div class="sz x">30</div><div class="sz x">32</div><div class="sz x">34</div><div class="sz">S</div><div class="sz">M</div><div class="sz">L</div><div class="sz x">30R</div>
   </div>
@@ -398,59 +372,112 @@ img{max-width:none}
     <div class="cap">WHAT SHOPPERS SEE</div>
     <p style="font:300 28px/1.45 'Geologica';margin-top:16px">Sizes we never bought, old size codes next to new ones, and crossed-out colours that won't come back.</p>
     <div class="cap" style="margin-top:44px">WHAT THEY CAN'T SEE</div>
-    <p style="font:300 28px/1.45 'Geologica';margin-top:16px">That the same hoodie comes in slim, boxy, Plus and Tall.</p>
+    <p style="font:300 28px/1.45 'Geologica';margin-top:16px">That boohooMAN hoodies come in muscle, boxy and slim fits, and in Plus and Tall.</p>
   </div>
-  <div class="line1 reveal d4">Most of this gets fixed in the product data before the page.</div>
+  <div class="line1 reveal d4">Clean up product data at source.</div>
 </section>
 
 <!-- 11 SAY IT ONCE -->
 <section class="slide">
-  <div class="header"><div class="eyebrow reveal">FINDING 07 · DELIVERY AND RETURNS</div><h2 class="slide-title reveal">SAY IT ONCE</h2><div class="rule draw"></div></div>
+  <div class="header"><div class="eyebrow reveal">FINDING 06 · DELIVERY AND RETURNS</div><h2 class="slide-title reveal">SAY IT ONCE</h2><div class="rule draw"></div></div>
   <div class="ab reveal d1" style="left:100px;top:260px"><div style="font:700 560px/1 'Antonio';color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.55)">20</div><div class="cap" style="margin-top:28px">PLACES DELIVERY SHOWS UP TODAY</div></div>
   <div class="ab reveal d2" style="left:880px;top:470px;font:200 120px/1 'Geologica'">→</div>
   <div class="ab reveal d3" style="left:1150px;top:260px"><div style="font:700 560px/1 'Antonio'">1</div><div class="cap" style="margin-top:28px">MODULE, WITH A "GET IT BY" DATE</div></div>
 </section>
 
+<!-- 08 ANCILLARIES -->
+<section class="slide">
+  <div class="glow g1"></div>
+  <div class="header"><div class="eyebrow reveal">FINDING 07 · DELIVER+ AND OTHER SERVICES</div><h2 class="slide-title reveal">PROTECT IT, TEST IT</h2><div class="rule draw"></div></div>
+  <div class="vs">
+    <div class="side reveal d1"><div class="huge">~25%</div><div class="cap" style="margin-top:12px">OF DEBENHAMS ORDERS ADD SEEL · A BIG SHARE OF PROFIT</div></div>
+    <div class="mid reveal d2"><span>TEST</span></div>
+    <div class="side reveal d3" style="text-align:right"><div class="huge q2">"IRRELEVANT<br>AT PDP"</div><div class="cap" style="margin-top:12px">KAREN MILLEN · IT PUTS GERMAN SHOPPERS OFF, SAYS BOOHOOMAN</div></div>
+  </div>
+  <div class="chips reveal d4"><span>Remove</span><span>Compact row</span><span>Lower down the page</span><span>Bag or checkout only</span><span>By category</span><span>By brand</span><span>By region</span></div>
+  <div class="line1 reveal d5" style="bottom:80px">No contractual obligations for size or placement. The commercial owners of Deliver+ sign off any test, and we hold the attach rate.</div>
+</section>
+
+<!-- 07 OUTFITS -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">FINDING 08 · EVERY FASHION BRAND</div><h2 class="slide-title reveal">OUTFITS AND SETS</h2><div class="rule draw"></div></div>
+  <div class="otf reveal d1" style="left:100px">
+    <div class="lab"><b>A</b><span>Matching set</span></div>
+    <div class="vis">
+      <div class="tile" style="left:0;top:0;width:520px;height:400px"><img src="assets/plt-1.jpg" alt=""></div>
+      <div class="wf" style="position:absolute;left:0;top:420px;display:flex;gap:8px"><div class="pill"><span class="on">Top</span><span>Bottom</span><span>The set</span></div></div>
+    </div>
+    <div class="cap where">THE HOODIE, SWEAT AND JOGGER</div>
+  </div>
+  <div class="otf reveal d2" style="left:700px">
+    <div class="lab"><b>B</b><span>Shop the look</span></div>
+    <div class="vis">
+      <div class="tile" style="left:0;top:0;width:320px;height:470px"><img src="assets/boohooman-2.jpg" alt=""><div class="dotn" style="left:150px;top:120px">1</div><div class="dotn" style="left:120px;top:300px">2</div></div>
+      <div class="tile" style="left:340px;top:0;width:180px;height:225px"><img src="assets/boohooman-3.jpg" alt=""><div class="tg">1</div></div>
+      <div class="tile" style="left:340px;top:245px;width:180px;height:225px;display:flex;align-items:center;justify-content:center;font:700 30px 'Antonio';letter-spacing:.06em">JOGGERS<div class="tg">2</div></div>
+    </div>
+    <div class="cap where">THE EXACT ITEMS THE MODEL IS WEARING</div>
+  </div>
+  <div class="otf reveal d3" style="left:1300px">
+    <div class="lab"><b>C</b><span>Ways to style</span></div>
+    <div class="vis">
+      <div class="tile" style="left:0;top:0;width:165px;height:470px"><img src="assets/karenmillen-1.jpg" alt=""><div class="tg">Work</div></div>
+      <div class="tile" style="left:177px;top:0;width:165px;height:470px"><img src="assets/karenmillen-2.jpg" alt=""><div class="tg">Weekend</div></div>
+      <div class="tile" style="left:354px;top:0;width:165px;height:470px"><img src="assets/karenmillen-3.jpg" alt=""><div class="tg">Wedding</div></div>
+    </div>
+    <div class="cap where">SEVERAL LOOKS FOR DIFFERENT OCCASIONS</div>
+  </div>
+  <div class="line1 reveal d5" style="bottom:80px">Where outfit building has been tested, it lifted AOV. How the brands would build and manage outfits is still unclear.</div>
+</section>
+
+<!-- 09 RECS -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">FINDING 09 · RECOMMENDATIONS</div><h2 class="slide-title reveal">FEWER ZONES, ONE JOB EACH</h2><div class="rule draw"></div></div>
+  <div class="stack reveal d1" style="left:100px">
+    <div class="rrow x"><i></i><i></i><i></i>Handpicked for you</div>
+    <div class="rrow x"><i></i><i></i><i></i>We think you'll like</div>
+    <div class="rrow x"><i></i><i></i><i></i>Sponsored</div>
+    <div class="rrow x"><i></i><i></i><i></i>Recently viewed + SEO links</div>
+  </div>
+  <div class="arrow reveal d2">→</div>
+  <div class="stack reveal d3" style="left:1080px;width:740px">
+    <div class="rrow on"><i></i><i></i><i></i>Goes with it</div>
+    <div class="rrow on"><i></i><i></i><i></i>In addition or instead</div>
+    <div class="rrow on"><i></i><i></i><i></i>Recently viewed</div>
+  </div>
+  <div class="line1 reveal d4">The sponsored carousel went live without a test and was the worst performer. Each label should say what the zone does.</div>
+</section>
+
 <!-- 12 APP -->
 <section class="slide">
   <div class="glow g3"></div>
-  <div class="header"><div class="eyebrow reveal">FINDING 08</div><h2 class="slide-title reveal">APP FIRST IN SALES, LAST IN FEATURES</h2><div class="rule draw"></div></div>
+  <div class="header"><div class="eyebrow reveal">FINDING 12</div><h2 class="slide-title reveal">APP FIRST IN REVENUE, LAST IN FEATURES</h2><div class="rule draw"></div></div>
   <div class="phone reveal-img d1" style="left:1380px;top:250px;height:740px"><img src="assets/pdp-boohoo-full.jpg" alt="boohoo mobile PDP"></div>
   <div class="ab reveal d2" style="left:100px;top:300px"><div class="huge">50-60%</div><div class="cap" style="margin-top:12px">OF BOOHOO + PLT SALES ARE ON APP</div></div>
   <div class="ab reveal d3" style="left:100px;top:600px"><div class="huge">~80%</div><div class="cap" style="margin-top:12px">OF KAREN MILLEN IS MOBILE · ITS APP CONVERTS BEST</div></div>
-  <div class="ab reveal d4" style="left:820px;top:640px;border:1px solid #fff;border-radius:999px;padding:20px 30px;font:500 22px/1 'Geologica';letter-spacing:.14em">#1 ASK · APPLE PAY ON APP PDP</div>
+  <div class="ab reveal d4" style="left:100px;top:900px;border:1px solid #fff;border-radius:999px;padding:20px 30px;font:500 22px/1 'Geologica';letter-spacing:.14em">BOOHOOMAN'S #1 ASK · APPLE PAY ON APP PDP</div>
 </section>
 
 <!-- 13 BRANDS -->
 <section class="slide">
   <div class="header"><div class="eyebrow reveal">BY FASCIA</div><h2 class="slide-title reveal">WHAT EACH BRAND NEEDS</h2><div class="rule draw"></div></div>
   <div class="brands">
-    <div class="bcard reveal d1"><div class="im"><img src="assets/debenhams-1.jpg" alt=""></div><h4>Debenhams</h4><p>Answer the questions each category raises, straight away.</p></div>
-    <div class="bcard reveal d2"><div class="im"><img src="assets/boohooman-1.jpg" alt=""></div><h4>boohooMAN</h4><p>"Just buy this and check out."</p></div>
-    <div class="bcard reveal d3"><div class="im"><img src="assets/boohoo-1.jpg" alt=""></div><h4>boohoo · PLT</h4><p>Built for the app and for shoppers arriving from social.</p></div>
-    <div class="bcard reveal d4"><div class="im"><img src="assets/karenmillen-4.jpg" alt=""></div><h4>Karen Millen</h4><p>Justify the price. Look like Reiss.</p></div>
+    <div class="bcard reveal d1"><div class="im"><img src="assets/debenhams-1.jpg" alt=""></div><h4>Debenhams</h4><p>Clear product information straight away, while keeping the profit drivers working.</p></div>
+    <div class="bcard reveal d2"><div class="im"><img src="assets/boohooman-1.jpg" alt=""></div><h4>boohooMAN</h4><p>Keep it simple, and tell him what to wear.</p></div>
+    <div class="bcard reveal d3"><div class="im"><img src="assets/boohoo-1.jpg" alt=""></div><h4>boohoo · PLT</h4><p>Browse and Shop at pace, with social intergration - own brand up front with personalised endless recommendations</p></div>
+    <div class="bcard reveal d4"><div class="im"><img src="assets/karenmillen-4.jpg" alt=""></div><h4>Karen Millen</h4><p>More premium and editorial - Put the product first and justify the price, remove the clutter.</p></div>
   </div>
 </section>
 
-<!-- 14 TENSIONS -->
-<section class="slide">
-  <div class="header"><div class="eyebrow reveal">WHERE STAKEHOLDERS DISAGREE</div><h2 class="slide-title reveal">FIVE THINGS TO TEST</h2><div class="rule draw"></div></div>
-  <div class="tens">
-    <div class="trow reveal d1"><div class="q">Deliver+</div><div class="a">Protect the profit</div><div class="m">VS</div><div class="b">Move it off the PDP</div></div>
-    <div class="trow reveal d2"><div class="q">Recs</div><div class="a">Inspire with alternatives</div><div class="m">VS</div><div class="b">Same look only</div></div>
-    <div class="trow reveal d3"><div class="q">Reviews</div><div class="a">Higher up the page</div><div class="m">VS</div><div class="b">Not yet</div></div>
-    <div class="trow reveal d4"><div class="q">Gallery</div><div class="a">Full bleed</div><div class="m">VS</div><div class="b">Peek to save height</div></div>
-    <div class="trow reveal d5"><div class="q">Checkout</div><div class="a">Fewer buttons</div><div class="m">VS</div><div class="b">Apple Pay express</div></div>
-  </div>
-</section>
+
 
 <!-- 15 CONSTRAINTS -->
 <section class="slide" style="background-color:#1b1b1b">
-  <div class="header"><div class="eyebrow reveal">AS STATED · NOT YET CONFIRMED BY LEGAL</div><h2 class="slide-title reveal">WHAT CAN MOVE</h2><div class="rule draw"></div></div>
+  <div class="header"><div class="eyebrow reveal">AS STATED IN INTERVIEWS · NOT YET CONFIRMED BY FINANCE OR LEGAL</div><h2 class="slide-title reveal">WHAT CAN'T MOVE</h2><div class="rule draw"></div></div>
   <div class="cons">
-    <div class="reveal d1"><div class="h">Must stay</div><span class="tagb">PayPal</span><span class="tagb">US pricing policy</span><span class="tagb">AI image label</span></div>
-    <div class="reveal d2"><div class="h">Free to move</div><span class="tagb o">Deliver+</span><span class="tagb o">Memberships</span><span class="tagb o">Recommendations</span></div>
-    <div class="reveal d3"><div class="h warn">To check</div><span class="tagb o">BNPL box</span><span class="tagb o">Fibre content</span><span class="tagb o">Open description (SEO)</span></div>
+    <div class="reveal d1"><div class="h">Must stay</div><span class="tagb">PayPal express</span><span class="tagb">US pricing policy</span><span class="tagb">AI image label</span></div>
+    <div class="reveal d2"><div class="h">Not contractual</div><span class="tagb o">Deliver+ / Seel</span><span class="tagb o">Reviews on boohoo / PLT</span></div>
+    <div class="reveal d3"><div class="h warn">To check</div><span class="tagb o">BNPL / finance box</span><span class="tagb o">Materials</span></div>
   </div>
 </section>
 
@@ -501,27 +528,45 @@ img{max-width:none}
   <div class="glow g1"></div>
   <div class="num reveal">03</div>
   <div class="stitle reveal d1">What we've tested</div>
-  <div class="ssub reveal d2">A/B tests on the order of the fashion PDP, run since the interviews.</div>
+  <div class="ssub reveal d2">A/B tests on the module order below Add to bag on mobile, in Fashion, Home and Beauty.</div>
 </section>
 
 <!-- MODULE ORDER -->
 <section class="slide">
-  <div class="header"><div class="eyebrow reveal">FASHION · MOBILE · ORDER BELOW ADD TO BAG</div><h2 class="slide-title reveal">FIVE ORDERS TESTED</h2><div class="rule draw"></div></div>
-  <div class="abt"><div class="reveal d1"><div class="ch">Current</div><div class="fx">Gallery → Add to bag<br>same in all five</div><div class="m svc">Unlimited</div><div class="m svc">Deliver+</div><div class="m info">Delivery/Returns</div><div class="m svc">BNPL</div><div class="m oth">Bundle</div><div class="m svc">S&amp;S</div><div class="m rec">Handpicked For You</div><div class="m info">At a Glance</div><div class="m info">Accordions</div><div class="m rec">We Think You&#x27;ll Like</div><div class="m rec">Sponsored Products</div><div class="m oth">Reviews</div><div class="m rec">Recently Viewed</div><div class="m oth">Fliximedia</div></div><div class="reveal d2"><div class="ch">Option A</div><div class="fx">Gallery → Add to bag<br>same in all five</div><div class="m svc">BNPL</div><div class="m svc">Unlimited</div><div class="m info">Delivery/Returns</div><div class="m svc">Deliver+</div><div class="m info">At a Glance</div><div class="m info">Accordions · description closed</div><div class="m rec">Handpicked For You</div><div class="m oth">Bundle</div><div class="m svc">S&amp;S</div><div class="m oth">Reviews</div><div class="m rec">We Think You&#x27;ll Like</div><div class="m rec">Sponsored Products</div><div class="m rec">Recently Viewed</div><div class="m oth">Fliximedia</div></div><div class="reveal d3"><div class="ch">Option B</div><div class="fx">Gallery → Add to bag<br>same in all five</div><div class="m svc">BNPL</div><div class="m info">At a Glance</div><div class="m info">Accordions</div><div class="m info">Delivery/Returns</div><div class="m svc">Unlimited</div><div class="m svc">Deliver+</div><div class="m rec">Handpicked For You</div><div class="m oth">Bundle</div><div class="m svc">S&amp;S</div><div class="m oth">Reviews</div><div class="m rec">We Think You&#x27;ll Like</div><div class="m rec">Sponsored Products</div><div class="m rec">Recently Viewed</div><div class="m oth">Fliximedia</div></div><div class="reveal d4"><div class="ch">A1</div><div class="fx">Gallery → Add to bag<br>same in all five</div><div class="m info">At a Glance</div><div class="m info">Accordions</div><div class="m svc">Unlimited</div><div class="m svc">Deliver+</div><div class="m info">Delivery/Returns</div><div class="m svc">BNPL</div><div class="m oth">Bundle</div><div class="m svc">S&amp;S</div><div class="m rec">Handpicked For You</div><div class="m rec">We Think You&#x27;ll Like</div><div class="m rec">Sponsored Products</div><div class="m oth">Reviews</div><div class="m rec">Recently Viewed</div><div class="m oth">Fliximedia</div></div><div class="reveal d5"><div class="ch">B1</div><div class="fx">Gallery → Add to bag<br>same in all five</div><div class="m info">Delivery/Returns</div><div class="m svc">BNPL</div><div class="m svc">Unlimited</div><div class="m svc">Deliver+</div><div class="m oth">Bundle</div><div class="m svc">S&amp;S</div><div class="m rec">Handpicked For You</div><div class="m info">At a Glance</div><div class="m info">Accordions</div><div class="m rec">We Think You&#x27;ll Like</div><div class="m rec">Sponsored Products</div><div class="m oth">Reviews</div><div class="m rec">Recently Viewed</div><div class="m oth">Fliximedia</div></div></div>
-  <div class="legend reveal d6"><span><i style="background:#fff"></i>Product info</span><span><i style="background:rgba(255,255,255,.22)"></i>Services</span><span><i style="border:1px dashed rgba(255,255,255,.5)"></i>Recommendations</span><span><i style="border:1px solid rgba(255,255,255,.5)"></i>Other</span></div>
-  <div class="line1 reveal d6" style="bottom:70px;font-size:26px">Every variant moves product info higher. Options A and B also move reviews above two of the carousels.</div>
+  <div class="header"><div class="eyebrow reveal">FASHION · MOBILE · ORDER BELOW ADD TO BAG</div><h2 class="slide-title reveal">OPTION A WON</h2><div class="rule draw"></div></div>
+  <div class="abw" style="grid-template-columns:repeat(4,1fr)"><div class="reveal d1"><div class="ch">Current</div><div class="cp">Live page</div><div class="pg"><div class="fx">Gallery → Add to bag</div><div class="m" style="background:#CCCCCC"><i>01</i>Unlimited</div><div class="m" style="background:#A2C4C9"><i>02</i>Deliver+</div><div class="m" style="background:#D9EAD3"><i>03</i>Delivery / Returns</div><div class="m" style="background:#FFF2CC"><i>04</i>BNPL</div><div class="m" style="background:#FCE5CD"><i>05</i>Bundle</div><div class="m" style="background:#FFFFFF"><i>06</i>Subscribe &amp; Save</div><div class="m" style="background:#F4CCCC"><i>07</i>Handpicked For You</div><div class="m" style="background:#D9D2E9"><i>08</i>At a Glance</div><div class="m" style="background:#D9D2E9"><i>09</i>Accordions</div><div class="m" style="background:#EAD1DC"><i>10</i>We Think You&#x27;ll Like</div><div class="m" style="background:#EAD1DC"><i>11</i>Sponsored Products</div><div class="m" style="background:#A4C2F4"><i>12</i>Reviews</div><div class="m" style="background:#FFFFFF"><i>13</i>Recently Viewed</div><div class="m fd">Flixmedia</div></div></div><div class="reveal d2"><div class="ch">Option A<span class="won">WON</span></div><div class="cp">Description closed by default</div><div class="pg w"><div class="fx">Gallery → Add to bag</div><div class="m" style="background:#FFF2CC"><i>01</i>BNPL</div><div class="m" style="background:#CCCCCC"><i>02</i>Unlimited</div><div class="m" style="background:#D9EAD3"><i>03</i>Delivery / Returns</div><div class="m" style="background:#A2C4C9"><i>04</i>Deliver+</div><div class="m" style="background:#D9D2E9"><i>05</i>At a Glance</div><div class="m" style="background:#D9D2E9"><i>06</i>Accordions</div><div class="m" style="background:#F4CCCC"><i>07</i>Handpicked For You</div><div class="m" style="background:#FCE5CD"><i>08</i>Bundle</div><div class="m" style="background:#FFFFFF"><i>09</i>Subscribe &amp; Save</div><div class="m" style="background:#A4C2F4"><i>10</i>Reviews</div><div class="m" style="background:#EAD1DC"><i>11</i>We Think You&#x27;ll Like</div><div class="m" style="background:#EAD1DC"><i>12</i>Sponsored Products</div><div class="m" style="background:#FFFFFF"><i>13</i>Recently Viewed</div><div class="m fd">Flixmedia</div></div></div><div class="reveal d3"><div class="ch">Option B</div><div class="cp">Description closed by default</div><div class="pg"><div class="fx">Gallery → Add to bag</div><div class="m" style="background:#FFF2CC"><i>01</i>BNPL</div><div class="m" style="background:#D9D2E9"><i>02</i>At a Glance</div><div class="m" style="background:#D9D2E9"><i>03</i>Accordions</div><div class="m" style="background:#D9EAD3"><i>04</i>Delivery / Returns</div><div class="m" style="background:#CCCCCC"><i>05</i>Unlimited</div><div class="m" style="background:#A2C4C9"><i>06</i>Deliver+</div><div class="m" style="background:#F4CCCC"><i>07</i>Handpicked For You</div><div class="m" style="background:#FCE5CD"><i>08</i>Bundle</div><div class="m" style="background:#FFFFFF"><i>09</i>Subscribe &amp; Save</div><div class="m" style="background:#A4C2F4"><i>10</i>Reviews</div><div class="m" style="background:#EAD1DC"><i>11</i>We Think You&#x27;ll Like</div><div class="m" style="background:#EAD1DC"><i>12</i>Sponsored Products</div><div class="m" style="background:#FFFFFF"><i>13</i>Recently Viewed</div><div class="m fd">Flixmedia</div></div></div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">HOME · MOBILE · ORDER BELOW ADD TO BAG</div><h2 class="slide-title reveal">BOTH OPTIONS UNDERPERFORMED</h2><div class="rule draw"></div></div>
+  <div class="abw" style="grid-template-columns:repeat(4,1fr)"><div class="reveal d1"><div class="ch">Current</div><div class="cp">Live page</div><div class="pg"><div class="fx">Gallery → Add to bag</div><div class="m" style="background:#CCCCCC"><i>01</i>Unlimited</div><div class="m" style="background:#E6B8AF"><i>02</i>Cover Genius</div><div class="m" style="background:#A2C4C9"><i>03</i>Deliver+</div><div class="m" style="background:#CFE2F3"><i>04</i>Task Rabbit</div><div class="m" style="background:#D9EAD3"><i>05</i>Delivery / Returns</div><div class="m" style="background:#FFF2CC"><i>06</i>BNPL</div><div class="m" style="background:#FCE5CD"><i>07</i>Bundle</div><div class="m" style="background:#F4CCCC"><i>08</i>Handpicked For You</div><div class="m" style="background:#D9D2E9"><i>09</i>At a Glance</div><div class="m" style="background:#D9D2E9"><i>10</i>Accordions</div><div class="m" style="background:#EAD1DC"><i>11</i>We Think You&#x27;ll Like</div><div class="m" style="background:#EAD1DC"><i>12</i>Sponsored Products</div><div class="m" style="background:#A4C2F4"><i>13</i>Reviews</div><div class="m" style="background:#FFFFFF"><i>14</i>Recently Viewed</div><div class="m fd">Flixmedia</div><div class="m fd">Subscribe &amp; Save</div></div></div><div class="reveal d2"><div class="ch">Option A</div><div class="cp">Description closed by default</div><div class="pg"><div class="fx">Gallery → Add to bag</div><div class="m" style="background:#FFF2CC"><i>01</i>BNPL</div><div class="m" style="background:#CCCCCC"><i>02</i>Unlimited</div><div class="m" style="background:#D9EAD3"><i>03</i>Delivery / Returns</div><div class="m" style="background:#A2C4C9"><i>04</i>Deliver+</div><div class="m" style="background:#E6B8AF"><i>05</i>Cover Genius</div><div class="m" style="background:#CFE2F3"><i>06</i>Task Rabbit</div><div class="m" style="background:#D9D2E9"><i>07</i>At a Glance</div><div class="m" style="background:#D9D2E9"><i>08</i>Accordions</div><div class="m" style="background:#FCE5CD"><i>09</i>Bundle</div><div class="m" style="background:#F4CCCC"><i>10</i>Handpicked For You</div><div class="m" style="background:#A4C2F4"><i>11</i>Reviews</div><div class="m" style="background:#EAD1DC"><i>12</i>We Think You&#x27;ll Like</div><div class="m" style="background:#EAD1DC"><i>13</i>Sponsored Products</div><div class="m" style="background:#FFFFFF"><i>14</i>Recently Viewed</div><div class="m fd">Flixmedia</div><div class="m fd">Subscribe &amp; Save</div></div></div><div class="reveal d3"><div class="ch">Option B</div><div class="cp">Description closed by default</div><div class="pg"><div class="fx">Gallery → Add to bag</div><div class="m" style="background:#FFF2CC"><i>01</i>BNPL</div><div class="m" style="background:#D9D2E9"><i>02</i>At a Glance</div><div class="m" style="background:#D9D2E9"><i>03</i>Accordions</div><div class="m" style="background:#D9EAD3"><i>04</i>Delivery / Returns</div><div class="m" style="background:#CCCCCC"><i>05</i>Unlimited</div><div class="m" style="background:#A2C4C9"><i>06</i>Deliver+</div><div class="m" style="background:#E6B8AF"><i>07</i>Cover Genius</div><div class="m" style="background:#CFE2F3"><i>08</i>Task Rabbit</div><div class="m" style="background:#FCE5CD"><i>09</i>Bundle</div><div class="m" style="background:#F4CCCC"><i>10</i>Handpicked For You</div><div class="m" style="background:#A4C2F4"><i>11</i>Reviews</div><div class="m" style="background:#EAD1DC"><i>12</i>We Think You&#x27;ll Like</div><div class="m" style="background:#EAD1DC"><i>13</i>Sponsored Products</div><div class="m" style="background:#FFFFFF"><i>14</i>Recently Viewed</div><div class="m fd">Flixmedia</div><div class="m fd">Subscribe &amp; Save</div></div></div></div>
+</section>
+
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">BEAUTY · MOBILE · ORDER BELOW ADD TO BAG</div><h2 class="slide-title reveal">BOTH OPTIONS UNDERPERFORMED</h2><div class="rule draw"></div></div>
+  <div class="abw" style="grid-template-columns:repeat(4,1fr)"><div class="reveal d1"><div class="ch">Current</div><div class="cp">Live page</div><div class="pg"><div class="fx">Gallery → Finder → Quantity → Add to bag</div><div class="m" style="background:#CCCCCC"><i>01</i>Unlimited</div><div class="m" style="background:#E6B8AF"><i>02</i>Cover Genius</div><div class="m" style="background:#A2C4C9"><i>03</i>Deliver+</div><div class="m" style="background:#D9EAD3"><i>04</i>Delivery / Returns</div><div class="m" style="background:#FFF2CC"><i>05</i>BNPL</div><div class="m" style="background:#FFFFFF"><i>06</i>Subscribe &amp; Save</div><div class="m" style="background:#CFE2F3"><i>07</i>GWP</div><div class="m" style="background:#FCE5CD"><i>08</i>Bundle</div><div class="m" style="background:#D9D2E9"><i>09</i>At a Glance</div><div class="m" style="background:#D9D2E9"><i>10</i>Accordions</div><div class="m pl"><i>11</i>Flixmedia</div><div class="m" style="background:#EAD1DC"><i>12</i>We Think You&#x27;ll Like</div><div class="m" style="background:#EAD1DC"><i>13</i>Sponsored Products</div><div class="m" style="background:#A4C2F4"><i>14</i>Reviews</div><div class="m" style="background:#FFFFFF"><i>15</i>Recently Viewed</div></div></div><div class="reveal d2"><div class="ch">Option A</div><div class="cp">Description closed by default</div><div class="pg"><div class="fx">Gallery → Quantity → Add to bag</div><div class="m" style="background:#CFE2F3"><i>01</i>GWP</div><div class="m" style="background:#FFF2CC"><i>02</i>BNPL</div><div class="m" style="background:#CCCCCC"><i>03</i>Unlimited</div><div class="m" style="background:#D9EAD3"><i>04</i>Delivery / Returns</div><div class="m" style="background:#A2C4C9"><i>05</i>Deliver+</div><div class="m" style="background:#E6B8AF"><i>06</i>Cover Genius</div><div class="m" style="background:#D9D2E9"><i>07</i>At a Glance</div><div class="m" style="background:#D9D2E9"><i>08</i>Accordions</div><div class="m pl"><i>09</i>Flixmedia</div><div class="m" style="background:#FCE5CD"><i>10</i>Bundle</div><div class="m" style="background:#EFEFEF"><i>11</i>Foundation/Makeup/Skincare Finder</div><div class="m" style="background:#FFFFFF"><i>12</i>Subscribe &amp; Save</div><div class="m" style="background:#A4C2F4"><i>13</i>Reviews</div><div class="m" style="background:#EAD1DC"><i>14</i>We Think You&#x27;ll Like</div><div class="m" style="background:#EAD1DC"><i>15</i>Sponsored Products</div><div class="m" style="background:#FFFFFF"><i>16</i>Recently Viewed</div></div></div><div class="reveal d3"><div class="ch">Option B</div><div class="cp">Description closed by default</div><div class="pg"><div class="fx">Gallery → Quantity → Add to bag</div><div class="m" style="background:#FFF2CC"><i>01</i>BNPL</div><div class="m" style="background:#CFE2F3"><i>02</i>GWP</div><div class="m" style="background:#D9D2E9"><i>03</i>At a Glance</div><div class="m" style="background:#D9D2E9"><i>04</i>Accordions</div><div class="m" style="background:#D9EAD3"><i>05</i>Delivery / Returns</div><div class="m" style="background:#CCCCCC"><i>06</i>Unlimited</div><div class="m" style="background:#A2C4C9"><i>07</i>Deliver+</div><div class="m" style="background:#E6B8AF"><i>08</i>Cover Genius</div><div class="m pl"><i>09</i>Flixmedia</div><div class="m" style="background:#FCE5CD"><i>10</i>Bundle</div><div class="m" style="background:#EFEFEF"><i>11</i>Foundation/Makeup/Skincare Finder</div><div class="m" style="background:#FFFFFF"><i>12</i>Subscribe &amp; Save</div><div class="m" style="background:#A4C2F4"><i>13</i>Reviews</div><div class="m" style="background:#EAD1DC"><i>14</i>We Think You&#x27;ll Like</div><div class="m" style="background:#EAD1DC"><i>15</i>Sponsored Products</div><div class="m" style="background:#FFFFFF"><i>16</i>Recently Viewed</div></div></div><div class="reveal d4"><div class="ch">No Revieve</div><div class="cp">Live page without Revieve. Description closed by default</div><div class="pg"><div class="fx">Gallery → Quantity → Add to bag</div><div class="m" style="background:#CCCCCC"><i>01</i>Unlimited</div><div class="m" style="background:#E6B8AF"><i>02</i>Cover Genius</div><div class="m" style="background:#A2C4C9"><i>03</i>Deliver+</div><div class="m" style="background:#D9EAD3"><i>04</i>Delivery / Returns</div><div class="m" style="background:#FFF2CC"><i>05</i>BNPL</div><div class="m" style="background:#FFFFFF"><i>06</i>Subscribe &amp; Save</div><div class="m" style="background:#CFE2F3"><i>07</i>GWP</div><div class="m" style="background:#FCE5CD"><i>08</i>Bundle</div><div class="m" style="background:#D9D2E9"><i>09</i>At a Glance</div><div class="m" style="background:#D9D2E9"><i>10</i>Accordions</div><div class="m pl"><i>11</i>Flixmedia</div><div class="m" style="background:#EAD1DC"><i>12</i>We Think You&#x27;ll Like</div><div class="m" style="background:#EAD1DC"><i>13</i>Sponsored Products</div><div class="m" style="background:#A4C2F4"><i>14</i>Reviews</div><div class="m" style="background:#FFFFFF"><i>15</i>Recently Viewed</div></div></div></div>
+</section>
+
+<section class="slide">
+  <div class="glow g2"></div>
+  <div class="header"><div class="eyebrow reveal">WHAT THIS MEANS FOR THE NEXT TESTS</div><h2 class="slide-title reveal">ONE CHANGE AT A TIME</h2><div class="rule draw"></div></div>
+  <div class="steps">
+    <div class="step reveal d1"><div class="n">01</div><h4>Too many moving parts</h4><p>In Home and Beauty, lots of modules moved at once, so it was hard to understand what caused the drop.</p></div>
+    <div class="step reveal d2"><div class="n">02</div><h4>More atomic tests</h4><p>Future tests need to change one thing at a time and measure its impact.</p></div>
+    <div class="step reveal d3"><div class="n">03</div><h4>Plan for the redesign</h4><p>That is harder when the PDP format and UI are changing at the same time, so the test plan for the redesign needs to allow for it.</p></div>
+  </div>
 </section>
 
 <section class="slide sec">
   <div class="glow g1"></div>
   <div class="num reveal">04</div>
   <div class="stitle reveal d1">Next steps</div>
-  <div class="ssub reveal d2">From the research to a prototype of the redesigned PDP.</div>
+  <div class="ssub reveal d2">Concepts, workshops and a test plan.</div>
 </section>
 
 <!-- 16 DECISION ZONE -->
 <section class="slide">
-  <div class="header"><div class="eyebrow reveal">THE PRINCIPLE</div><h2 class="slide-title reveal">THE DECISION ZONE</h2><div class="rule draw" style="width:900px"></div></div>
+  <div class="header"><div class="eyebrow reveal">THE PRINCIPLE</div><h2 class="slide-title reveal">PURCHASE INFO FIRST</h2><div class="rule draw" style="width:900px"></div></div>
   <div class="phone reveal-img d1" style="left:100px;top:270px;height:720px"><img src="assets/pdp-debs-full.jpg" alt="Today's PDP"></div>
   <div class="phone wf reveal-img d2" style="left:560px;top:270px;height:720px">
     <div class="z ph" style="flex:0 0 300px"><img src="assets/debenhams-1.jpg" alt=""></div>
@@ -534,19 +579,25 @@ img{max-width:none}
   <div class="phcap reveal d3" style="left:100px;top:1010px;font-size:28px">Today</div>
   <div class="phcap reveal d3" style="left:560px;top:1010px;font-size:28px">Proposed</div>
   <div class="ab reveal d4" style="left:1060px;top:300px;width:760px">
-    <p style="font:300 40px/1.3 'Geologica';letter-spacing:-.02em">Above Add to bag, only what helps you choose <b style="font-weight:500">this</b> product.</p>
-    <p style="font:300 40px/1.3 'Geologica';letter-spacing:-.02em;margin-top:30px">Everything else goes below, and each module there has an owner and a metric.</p>
+    <p style="font:300 40px/1.3 'Geologica';letter-spacing:-.02em">Prioritise the info that helps someone decide to purchase <b style="font-weight:500">this</b> product over anything else on the page.</p>
+    <p style="font:300 40px/1.3 'Geologica';letter-spacing:-.02em;margin-top:30px">Every module has a job, an owner and a metric.</p>
   </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="slide">
+  <div class="header"><div class="eyebrow reveal">WHAT HAPPENS NEXT</div><h2 class="slide-title reveal">PRINCIPLES FOR THE NEW PDP</h2><div class="rule draw"></div></div>
+  <div class="plist reveal d1"><div>Prioritise the info that helps someone decide to purchase this product over anything else on the page.</div><div>Every module has a job, an owner and a metric. We continuously measure at a granular level of detail (each click/tap, scroll etc.)</div><div>One framework, one design system: layouts per category and UI themes per brand, with no forked pages.</div><div>Delivery, returns, promotions and payments each appear clearly, once, in a purpose designed position, not repeated.</div><div>Test anything that touches profit and deliver+ uptake, check attach rates in every test.</div><div>Where the problem is in the data, fix the data. This is a key enabler prior to the new PDP going live, the front end can only do so much.</div><div>Ship on web first, then fast follow on app once value is proven, if not start to test on app. Ensure the same components are used app as are used on web (unless native nuance justifies), enabling operational efficiency and pace of delivery, as well as a consistent experience for users.</div></div>
 </section>
 
 <!-- 17 NEXT -->
 <section class="slide">
   <div class="glow g2"></div>
-  <div class="header"><div class="eyebrow reveal">WHAT HAPPENS NEXT</div><h2 class="slide-title reveal">PROTOTYPE, PLAYBACK, TEST</h2><div class="rule draw"></div></div>
+  <div class="header"><div class="eyebrow reveal">WHAT HAPPENS NEXT</div><h2 class="slide-title reveal">CONCEPTS, WORKSHOPS, TESTS</h2><div class="rule draw"></div></div>
   <div class="steps">
-    <div class="step reveal d1"><div class="n">01</div><h4>Prototype</h4><p>The redesigned PDP, built on the design system, for every brand on mobile, desktop and app.</p></div>
-    <div class="step reveal d2"><div class="n">02</div><h4>Playback</h4><p>Each brand clicks through the concepts and tells us what's wrong.</p></div>
-    <div class="step reveal d3"><div class="n">03</div><h4>Tests</h4><p>A test roadmap with Becca, building on the order tests already run. Attach rates can't drop.</p></div>
+    <div class="step reveal d1"><div class="n">01</div><h4>Concept phase</h4><p>UX to explore multiple designs, prototypes and concepts for every fascia, on mobile, desktop and app, built on the group design system, before reviewing and feeding back with the team.</p></div>
+    <div class="step reveal d2"><div class="n">02</div><h4 style="font-size:52px">Ideation &amp; benchmarking workshops</h4><p>Starting with the UX, Tech and Product team, then expanding to brands if required. We share examples of what good looks like, discuss what might be worth exploring and review the designs and concepts created by UX.</p></div>
+    <div class="step reveal d3"><div class="n">03</div><h4 style="font-size:52px">A/B &amp; CRO test plan</h4><p>UX will work hand in hand with the Experimentation team to break the concepts we progress into a robust testing plan, with the team involved from the outset.</p></div>
   </div>
   <div class="line1 reveal d4">The quotes and numbers behind each slide are in the report.</div>
 </section>
