@@ -872,6 +872,48 @@ p,ul.b,blockquote,.so,.lede{max-width:none}
 
 .fact-src a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .ab-col.live h5,.ab-col.live .ab-cap{color:#989898}
+
+h3{display:block;margin:44px 0 14px}
+.meta a{color:#fff}
+.who-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.who-grid{grid-template-columns:1fr}}
+.fact-src{font-size:14px;color:var(--mute);margin-top:4px}
+blockquote{font-style:italic}
+blockquote cite{font-style:normal}
+.so p{margin-bottom:12px}.so p:last-child{margin-bottom:0}
+.finding p+ul.b{margin-top:4px}
+/* A/B wireframes */
+.ab{margin:28px 0 8px}
+.ab-cat{margin-bottom:56px}
+.ab-cat h4{font:400 19px/1.35 'Geologica';letter-spacing:.12em;text-transform:uppercase}
+.ab-res{font-size:15px;margin:6px 0 0}
+.ab-scroll{overflow-x:auto;margin-top:16px;padding-bottom:6px}
+.ab-row{display:grid;grid-template-columns:repeat(4,minmax(210px,1fr));gap:12px;min-width:880px}
+.ab-col h5{font:400 17px/1.3 'Geologica';display:flex;gap:8px;align-items:center;margin:0}
+.ab-won{font:400 11px/1 'Geologica';background:#fff;color:#050505;padding:4px 8px}
+.ab-cap{font-size:12px;line-height:1.4;min-height:34px;margin:10px 0}
+.ab-page{background:#050505;border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:3px}
+.ab-page.won{border-color:rgba(255,255,255,.9)}
+.ab-m{height:24px;flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 8px;font:300 12px/1 'Geologica';color:#050505;white-space:nowrap;overflow:hidden}
+.ab-m i{font-style:normal;font-weight:200;font-size:10px}
+.ab-m.top{height:20px;background:rgba(255,255,255,.07);color:#fff;font-size:11px}
+.ab-m.hero{height:80px;justify-content:center}
+.ab-m.plain{background:rgba(255,255,255,.07);color:#fff}
+.ab-m.fade{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.4)}
+.ab-gap{height:5px}
+.ab-note{font-size:13px}
+footer:empty{padding:0;border:0;margin-top:40px}
+@media print{.ab-scroll{overflow:visible}.ab-row{min-width:0}.ab-cat{break-inside:avoid}}
+
+p,ul.b,blockquote,.so,.lede{max-width:none}
+.brands{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.brands{grid-template-columns:1fr}}
+.ab-m{font-size:11.5px}
+@media print{.ab-m{font-size:9px;gap:5px;padding:0 5px}.ab-m.top{font-size:8.5px}.ab-cap{font-size:10px}}
+@media print{#numbers .grid{grid-template-columns:repeat(4,1fr)}#numbers .fact-v{font-size:44px}}
+
+.fact-src a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.ab-col.live h5,.ab-col.live .ab-cap{color:#989898}
 </style>
 </head>
 <body>
@@ -914,7 +956,7 @@ p,ul.b,blockquote,.so,.lede{max-width:none}
   <h2>Findings</h2><div class="rule"></div>
 <div class="finding"><div class="n">01</div><div><h4>The page is cluttered, and the clutter hides what sells</h4><p>Every stakeholder raised this without being asked. Almost every request to the trading teams is to add something: a badge, a delivery method, membership, a promotion. Features go live one at a time, often without consultation, and when conversion is poor the usual response is to add more offers.</p><blockquote>Every message has to go everywhere. And I think it just ends up being noise that drowns out the information that the customer is actually looking for.<cite>Debenhams</cite></blockquote><blockquote>We just give way too many options on our PDP. Do you want Deliver+? Do you want Premier? PayPal or Apple Pay? Another product?<cite>Karen Millen</cite></blockquote><div class="so"><b>For consideration</b><p>Prioritise on the page everything a customer needs to decide to make a purchase decision, above every other component. The most important job the page has is to make this info easy for the user to find and interact with. Anything that isn't part of that decision (ancillary services, memberships, extra offers) becomes secondary or tertiary to this.</p></div></div></div>
 <div class="finding"><div class="n">02</div><div><h4>Different products need different pages</h4><p>Home and furniture is Debenhams' biggest category, and non-fashion brings in more money than fashion for them. A furniture shopper wants to know the products dimensions, what its made of and when it will arrive. On today's PDP the product dimensions sit in an accordion and there is no surfaced delivery info.</p><p>The fashion brands feel they inherited a page built for a department store. Karen Millen wants a premium, editorial feel. boohooMAN wants it "super straightforward". boohoo and PLT asked whether fast fashion needs a PDP that works more like TikTok Shop. In practice that means a video-led page where you swipe between products, check your size and buy in one tap, with the detail tucked away.</p><blockquote>As a customer… how big is it, what's it made of, what does it cost, how quickly can you deliver it to me? They're probably four very key things that you need to get across to me pretty damn quick.<cite>Debenhams</cite></blockquote><blockquote>Customers are just used to swiping between products and just shopping TikTok Shop… they can see the video, they can see the product. They're not overly bothered about too much information as long as it's got the relevant size… do we need a PDP that is more like a social, TikTok style?<cite>boohoo · PLT</cite></blockquote><div class="so"><b>For consideration</b><p>Build a cohesive set of components and a differentiated layout per category (fashion, home and furniture, beauty), that still follows the group-wide ordering in finding 01, with a more intentional UI theme per brand set by our design system/design tokens. For fast fashion, explore a video-led, swipe-and-buy format along side a more streamlined PDP.</p></div></div></div>
-<div class="finding"><div class="n">03</div><div><h4>Bigger imagery, more video</h4><p>Product images are king. Competitors PDP image carousels are much bigger, more modern and clearer than ours, on desktop particularly. Stakeholders asked for more product shot types (model, flat lay, fabric close-up) and video, which also helps paid social and shopping feeds. Marketplace images often arrive at odd ratios with white bands top and bottom. On app, the gallery stops at the last image instead of looping and images don't always fill their container.</p><div class="so"><b>For consideration</b><p>Explore bigger galleries: a desktop grid that takes at least half the page, full-width looping swipe on mobile web and app, more shot types and video, and a explore a solution for marketplace images in the incorrect aspect ratio (white bands top and bottom) if possible.</p></div></div></div>
+<div class="finding"><div class="n">03</div><div><h4>Bigger imagery, more video</h4><p>Product images are king. Competitors PDP image carousels are much bigger, more modern and clearer than ours, on desktop particularly. Stakeholders asked for more product shot types (model, flat lay, fabric close-up) and video, which also helps paid social and shopping feeds. Marketplace images often arrive at odd ratios with white bands top and bottom. On app, the gallery stops at the last image instead of looping and images don't always fill their container.</p><div class="so"><b>For consideration</b><p>Explore bigger galleries: a desktop grid that takes at least half the page, full-width looping swipe on mobile web and app, more shot types and video, and explore a solution for marketplace images in the incorrect aspect ratio (white bands top and bottom) if possible.</p></div></div></div>
 <div class="finding"><div class="n">04</div><div><h4>Premium has to put the product first and justify the price</h4><p>Karen Millen’s top benchmarked sites were Reiss, ME+EM, Hobbs and Whistles. These sites all have a much more premium look and feel to them. Beyond the key purchase info identified in section 01, KM have requested more editorial content on the PDP, prioritised over outfits, recommendations and ancillary services.</p><p>Today the page looks the same in a heavy sale and a full-price campaign, and full-price products need more editorial content on the PDP that explain the elevated price - "this is why this coat is £250".</p><div class="so"><b>For consideration</b><p>Give premium brands their own theme inside the group framework: an image-led hero, then description and size before any services, a distinct full-price look with detail editorial and storytelling components, differentiated from reduced price and sale formats.</p></div></div></div>
 <div class="finding"><div class="n">05</div><div><h4>Size, fit and colour problems start in the product data</h4><p>Discontinued colours stay on the site, crossed out. Dropdowns list sizes that were never bought, and legacy codes ("30" vs "30R") sit side by side. Some PDPs use size boxes, others dropdowns. boohooMAN buys hoodies in muscle, boxy and slim fits and in Plus and Tall, but the page doesn't show it. Trousers should ask for leg length, then waist. Beauty shades appear in a random order. A more granular and optimised size selection was one of boohooMAN’s top asks.</p><div class="so"><b>For consideration</b><p>Clean up product data at source: remove dead colours and unsold sizes, standardise size codes, and add all fit and leg-length attributes, with the ability for the user to easily select. Align size selection from one consistent set of components and only nuance where an uplift in conversion is identified.</p></div></div></div>
 <div class="finding"><div class="n">06</div><div><h4>Too much or too little - delivery, returns, promotions, payments</h4><p>Delivery and returns appear in "about 20 different places" across the journey (USP bar, badges, accordions, delivery protection), yet a furniture PDP has no delivery date displayed. Promo codes appear in the USP bar, are badged throughout the journey and again on the PDP - is this too much? An earlier test showed a closed product description beat an open one, but it has since been reopened. Express checkout buttons stack up and create choice overwhelm at a critical conversion point. Klarna is 70 to 80% of Netherlands sales but is not surfaced on the PDP.</p><div class="so"><b>For consideration</b><p>Use one delivery module with a "get it by" date, clearly state returns policy in one clear default place, introduce one promo slot with multiple offers behind this, clean and dedupe product data, re-test accordions closed by default, and explore fewer express payment buttons if possible, within what the contracts allow.</p><p>Ensure that everything on the PDP fits into the prioritised order outlined in point 01 and has dedicated slots, each with clear purpose, clearly comunicating the right balance of product, payment, promotions, delivery and returns info along side additional reccomendations and ancillary services where appropriate</p></div></div></div>
