@@ -210,6 +210,47 @@ p,ul.b,blockquote,.so,.lede{max-width:none}
 .ab-m{font-size:11.5px}
 @media print{.ab-m{font-size:9px;gap:5px;padding:0 5px}.ab-m.top{font-size:8.5px}.ab-cap{font-size:10px}}
 @media print{#numbers .grid{grid-template-columns:repeat(4,1fr)}#numbers .fact-v{font-size:44px}}
+
+h3{display:block;margin:44px 0 14px}
+.meta a{color:#fff}
+.who-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.who-grid{grid-template-columns:1fr}}
+.fact-src{font-size:14px;color:var(--mute);margin-top:4px}
+blockquote{font-style:italic}
+blockquote cite{font-style:normal}
+.so p{margin-bottom:12px}.so p:last-child{margin-bottom:0}
+.finding p+ul.b{margin-top:4px}
+/* A/B wireframes */
+.ab{margin:28px 0 8px}
+.ab-cat{margin-bottom:56px}
+.ab-cat h4{font:400 19px/1.35 'Geologica';letter-spacing:.12em;text-transform:uppercase}
+.ab-res{font-size:15px;margin:6px 0 0}
+.ab-scroll{overflow-x:auto;margin-top:16px;padding-bottom:6px}
+.ab-row{display:grid;grid-template-columns:repeat(4,minmax(210px,1fr));gap:12px;min-width:880px}
+.ab-col h5{font:400 17px/1.3 'Geologica';display:flex;gap:8px;align-items:center;margin:0}
+.ab-won{font:400 11px/1 'Geologica';background:#fff;color:#050505;padding:4px 8px}
+.ab-cap{font-size:12px;line-height:1.4;min-height:34px;margin:10px 0}
+.ab-page{background:#050505;border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:3px}
+.ab-page.won{border-color:rgba(255,255,255,.9)}
+.ab-m{height:24px;flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 8px;font:300 12px/1 'Geologica';color:#050505;white-space:nowrap;overflow:hidden}
+.ab-m i{font-style:normal;font-weight:200;font-size:10px}
+.ab-m.top{height:20px;background:rgba(255,255,255,.07);color:#fff;font-size:11px}
+.ab-m.hero{height:80px;justify-content:center}
+.ab-m.plain{background:rgba(255,255,255,.07);color:#fff}
+.ab-m.fade{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.4)}
+.ab-gap{height:5px}
+.ab-note{font-size:13px}
+footer:empty{padding:0;border:0;margin-top:40px}
+@media print{.ab-scroll{overflow:visible}.ab-row{min-width:0}.ab-cat{break-inside:avoid}}
+
+p,ul.b,blockquote,.so,.lede{max-width:none}
+.brands{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.brands{grid-template-columns:1fr}}
+.ab-m{font-size:11.5px}
+@media print{.ab-m{font-size:9px;gap:5px;padding:0 5px}.ab-m.top{font-size:8.5px}.ab-cap{font-size:10px}}
+@media print{#numbers .grid{grid-template-columns:repeat(4,1fr)}#numbers .fact-v{font-size:44px}}
+
+.fact-src a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -219,7 +260,7 @@ p,ul.b,blockquote,.so,.lede{max-width:none}
     <div class="eyebrow">PDP redesign · GROUP UX · Nov 2026</div>
     <h1>Stakeholder<br>INTERVIEWS Report</h1>
     <p class="lede">We recently ran a series of UX discovery interviews with key stakeholders across Debenhams, boohoo, boohooMAN, PrettyLittleThing and Karen Millen about the PDP and its upcoming redesign. The aim was to get insights and an idea of scope / requirements from each brand before exploring any designs, ensuring that the PDP redesign delivers value across the Debenhams Group brands and fascias.</p>
-    <div class="meta">Jake Rayner, Paul Dossis, Demi Adesanya · Interviews conducted in Sep 2026<br><a href="https://docs.google.com/document/d/1pDBc8JPLaoNIjcvX_CXpXv7THrmuOv7chT9iH5rWewc/edit?tab=t.0">View Stakeholder Interview Script</a></div>
+    <div class="meta">Jake Rayner, Paul Dossis, Demi Adesanya · Interviews conducted in Sep 2026<br><a href="https://docs.google.com/document/d/1pDBc8JPLaoNIjcvX_CXpXv7THrmuOv7chT9iH5rWewc/edit?tab=t.0" target="_blank" rel="noopener">View Stakeholder Interview Script</a></div>
   </div>
 </header>
 <nav class="toc"><div class="wrap">
@@ -239,7 +280,7 @@ p,ul.b,blockquote,.so,.lede{max-width:none}
   <h2>Who we spoke to</h2><div class="rule"></div>
   <div class="grid who-grid">
     <div class="cell"><div class="fact-l">CORE Fascias</div><div class="fact-v">5</div><div class="fact-d">Debenhams, boohoo, boohooMAN, PLT, Karen Millen</div></div>
-    <div class="cell"><div class="fact-l">Insights logged</div><div class="fact-v">374</div><div class="fact-d">Each one quoted and timestamped in the UX Research Repo</div><div class="fact-src">UX Research Repo</div></div>
+    <div class="cell"><div class="fact-l">Insights logged</div><div class="fact-v">374</div><div class="fact-d">Each one quoted and timestamped in the UX Research Repo</div><div class="fact-src"><a href="https://docs.google.com/spreadsheets/d/16_HH6zO_G6mrzuSVtmnQqKDUEjmz4Ge2icwDvWfyhzE" target="_blank" rel="noopener">UX Research Repo</a></div></div>
   </div>
   <div class="tbl"><table>
     <tr><th>Brand</th><th>Who</th><th>Role</th></tr>
