@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PDP redesign - Stakeholder Feedback report</title>
+<title>PDP redesign - Stakeholder Interviews Report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Geologica:ital,wght@0,200;0,300;0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Geologica:ital,wght@0,200;0,300;0,400;0,500;0,700;1,300;1,700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#050505;--panel:#0e0e0e;--line:rgba(255,255,255,.14);--text:#fff;--mute:#9a9a92;--warn:#ffb020;--ease:cubic-bezier(.16,1,.3,1)}
 
@@ -67,252 +67,241 @@ td{padding:14px;border-bottom:1px solid var(--line);vertical-align:top}
 @page{size:A4;margin:0}
 @media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}nav.toc{display:none}.finding,blockquote,.brand,.cell,tr{break-inside:avoid}section{padding-top:56px}header.hero{padding-top:72px}}
 footer{padding:96px 0 80px;border-top:1px solid var(--line);margin-top:80px}
+
+h3{display:block;margin:44px 0 14px}
+.meta a{color:#fff}
+.who-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.who-grid{grid-template-columns:1fr}}
+.fact-src{font-size:14px;color:var(--mute);margin-top:4px}
+blockquote{font-style:italic}
+blockquote cite{font-style:normal}
+.so p{margin-bottom:12px}.so p:last-child{margin-bottom:0}
+.finding p+ul.b{margin-top:4px}
+/* A/B wireframes */
+.ab{margin:28px 0 8px}
+.ab-cat{margin-bottom:56px}
+.ab-cat h4{font:400 19px/1.35 'Geologica';letter-spacing:.12em;text-transform:uppercase}
+.ab-res{font-size:15px;margin:6px 0 0}
+.ab-scroll{overflow-x:auto;margin-top:16px;padding-bottom:6px}
+.ab-row{display:grid;grid-template-columns:repeat(4,minmax(210px,1fr));gap:12px;min-width:880px}
+.ab-col h5{font:400 17px/1.3 'Geologica';display:flex;gap:8px;align-items:center;margin:0}
+.ab-won{font:400 11px/1 'Geologica';background:#fff;color:#050505;padding:4px 8px}
+.ab-cap{font-size:12px;line-height:1.4;min-height:34px;margin:10px 0}
+.ab-page{background:#050505;border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:3px}
+.ab-page.won{border-color:rgba(255,255,255,.9)}
+.ab-m{height:24px;flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 8px;font:300 12px/1 'Geologica';color:#050505;white-space:nowrap;overflow:hidden}
+.ab-m i{font-style:normal;font-weight:200;font-size:10px}
+.ab-m.top{height:20px;background:rgba(255,255,255,.07);color:#fff;font-size:11px}
+.ab-m.hero{height:80px;justify-content:center}
+.ab-m.plain{background:rgba(255,255,255,.07);color:#fff}
+.ab-m.fade{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.4)}
+.ab-gap{height:5px}
+.ab-note{font-size:13px}
+footer:empty{padding:0;border:0;margin-top:40px}
+@media print{.ab-scroll{overflow:visible}.ab-row{min-width:0}.ab-cat{break-inside:avoid}}
+
+h3{display:block;margin:44px 0 14px}
+.meta a{color:#fff}
+.who-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.who-grid{grid-template-columns:1fr}}
+.fact-src{font-size:14px;color:var(--mute);margin-top:4px}
+blockquote{font-style:italic}
+blockquote cite{font-style:normal}
+.so p{margin-bottom:12px}.so p:last-child{margin-bottom:0}
+.finding p+ul.b{margin-top:4px}
+/* A/B wireframes */
+.ab{margin:28px 0 8px}
+.ab-cat{margin-bottom:56px}
+.ab-cat h4{font:400 19px/1.35 'Geologica';letter-spacing:.12em;text-transform:uppercase}
+.ab-res{font-size:15px;margin:6px 0 0}
+.ab-scroll{overflow-x:auto;margin-top:16px;padding-bottom:6px}
+.ab-row{display:grid;grid-template-columns:repeat(4,minmax(210px,1fr));gap:12px;min-width:880px}
+.ab-col h5{font:400 17px/1.3 'Geologica';display:flex;gap:8px;align-items:center;margin:0}
+.ab-won{font:400 11px/1 'Geologica';background:#fff;color:#050505;padding:4px 8px}
+.ab-cap{font-size:12px;line-height:1.4;min-height:34px;margin:10px 0}
+.ab-page{background:#050505;border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:3px}
+.ab-page.won{border-color:rgba(255,255,255,.9)}
+.ab-m{height:24px;flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 8px;font:300 12px/1 'Geologica';color:#050505;white-space:nowrap;overflow:hidden}
+.ab-m i{font-style:normal;font-weight:200;font-size:10px}
+.ab-m.top{height:20px;background:rgba(255,255,255,.07);color:#fff;font-size:11px}
+.ab-m.hero{height:80px;justify-content:center}
+.ab-m.plain{background:rgba(255,255,255,.07);color:#fff}
+.ab-m.fade{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.4)}
+.ab-gap{height:5px}
+.ab-note{font-size:13px}
+footer:empty{padding:0;border:0;margin-top:40px}
+@media print{.ab-scroll{overflow:visible}.ab-row{min-width:0}.ab-cat{break-inside:avoid}}
+
+p,ul.b,blockquote,.so,.lede{max-width:none}
+
+h3{display:block;margin:44px 0 14px}
+.meta a{color:#fff}
+.who-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.who-grid{grid-template-columns:1fr}}
+.fact-src{font-size:14px;color:var(--mute);margin-top:4px}
+blockquote{font-style:italic}
+blockquote cite{font-style:normal}
+.so p{margin-bottom:12px}.so p:last-child{margin-bottom:0}
+.finding p+ul.b{margin-top:4px}
+/* A/B wireframes */
+.ab{margin:28px 0 8px}
+.ab-cat{margin-bottom:56px}
+.ab-cat h4{font:400 19px/1.35 'Geologica';letter-spacing:.12em;text-transform:uppercase}
+.ab-res{font-size:15px;margin:6px 0 0}
+.ab-scroll{overflow-x:auto;margin-top:16px;padding-bottom:6px}
+.ab-row{display:grid;grid-template-columns:repeat(4,minmax(210px,1fr));gap:12px;min-width:880px}
+.ab-col h5{font:400 17px/1.3 'Geologica';display:flex;gap:8px;align-items:center;margin:0}
+.ab-won{font:400 11px/1 'Geologica';background:#fff;color:#050505;padding:4px 8px}
+.ab-cap{font-size:12px;line-height:1.4;min-height:34px;margin:10px 0}
+.ab-page{background:#050505;border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:3px}
+.ab-page.won{border-color:rgba(255,255,255,.9)}
+.ab-m{height:24px;flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 8px;font:300 12px/1 'Geologica';color:#050505;white-space:nowrap;overflow:hidden}
+.ab-m i{font-style:normal;font-weight:200;font-size:10px}
+.ab-m.top{height:20px;background:rgba(255,255,255,.07);color:#fff;font-size:11px}
+.ab-m.hero{height:80px;justify-content:center}
+.ab-m.plain{background:rgba(255,255,255,.07);color:#fff}
+.ab-m.fade{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.4)}
+.ab-gap{height:5px}
+.ab-note{font-size:13px}
+footer:empty{padding:0;border:0;margin-top:40px}
+@media print{.ab-scroll{overflow:visible}.ab-row{min-width:0}.ab-cat{break-inside:avoid}}
+
+p,ul.b,blockquote,.so,.lede{max-width:none}
+.brands{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.brands{grid-template-columns:1fr}}
+.ab-m{font-size:11.5px}
+@media print{.ab-m{font-size:9px;gap:5px;padding:0 5px}.ab-m.top{font-size:8.5px}.ab-cap{font-size:10px}}
+
+h3{display:block;margin:44px 0 14px}
+.meta a{color:#fff}
+.who-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.who-grid{grid-template-columns:1fr}}
+.fact-src{font-size:14px;color:var(--mute);margin-top:4px}
+blockquote{font-style:italic}
+blockquote cite{font-style:normal}
+.so p{margin-bottom:12px}.so p:last-child{margin-bottom:0}
+.finding p+ul.b{margin-top:4px}
+/* A/B wireframes */
+.ab{margin:28px 0 8px}
+.ab-cat{margin-bottom:56px}
+.ab-cat h4{font:400 19px/1.35 'Geologica';letter-spacing:.12em;text-transform:uppercase}
+.ab-res{font-size:15px;margin:6px 0 0}
+.ab-scroll{overflow-x:auto;margin-top:16px;padding-bottom:6px}
+.ab-row{display:grid;grid-template-columns:repeat(4,minmax(210px,1fr));gap:12px;min-width:880px}
+.ab-col h5{font:400 17px/1.3 'Geologica';display:flex;gap:8px;align-items:center;margin:0}
+.ab-won{font:400 11px/1 'Geologica';background:#fff;color:#050505;padding:4px 8px}
+.ab-cap{font-size:12px;line-height:1.4;min-height:34px;margin:10px 0}
+.ab-page{background:#050505;border:1px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:3px}
+.ab-page.won{border-color:rgba(255,255,255,.9)}
+.ab-m{height:24px;flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 8px;font:300 12px/1 'Geologica';color:#050505;white-space:nowrap;overflow:hidden}
+.ab-m i{font-style:normal;font-weight:200;font-size:10px}
+.ab-m.top{height:20px;background:rgba(255,255,255,.07);color:#fff;font-size:11px}
+.ab-m.hero{height:80px;justify-content:center}
+.ab-m.plain{background:rgba(255,255,255,.07);color:#fff}
+.ab-m.fade{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.4)}
+.ab-gap{height:5px}
+.ab-note{font-size:13px}
+footer:empty{padding:0;border:0;margin-top:40px}
+@media print{.ab-scroll{overflow:visible}.ab-row{min-width:0}.ab-cat{break-inside:avoid}}
+
+p,ul.b,blockquote,.so,.lede{max-width:none}
+.brands{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.brands{grid-template-columns:1fr}}
+.ab-m{font-size:11.5px}
+@media print{.ab-m{font-size:9px;gap:5px;padding:0 5px}.ab-m.top{font-size:8.5px}.ab-cap{font-size:10px}}
+@media print{#numbers .grid{grid-template-columns:repeat(4,1fr)}#numbers .fact-v{font-size:44px}}
 </style>
 </head>
 <body>
 <header class="hero">
   <div class="ghost" aria-hidden="true">PDP</div>
   <div class="wrap">
-    <div class="eyebrow">PDP redesign · Research report</div>
-    <h1>Stakeholder<br>feedback</h1>
-    <p class="lede">We spoke to eight trading, ecommerce and commercial leads across Debenhams, boohoo, boohooMAN, PrettyLittleThing and Karen Millen about the product page. Each brand described the same problem: features keep getting added to the page and nothing gets taken off.</p>
-    <div class="meta">Jake Rayner, Paul Dossis, Demi Adesanya · Interviews 8 to 17 Sep 2026 · Report 16 Nov 2026</div>
+    <div class="eyebrow">PDP redesign · GROUP UX · Nov 2026</div>
+    <h1>Stakeholder<br>INTERVIEWS Report</h1>
+    <p class="lede">We recently ran a series of UX discovery interviews with key stakeholders across Debenhams, boohoo, boohooMAN, PrettyLittleThing and Karen Millen about the PDP and its upcoming redesign. The aim was to get insights and an idea of scope / requirements from each brand before exploring any designs, ensuring that the PDP redesign delivers value across the Debenhams Group brands and fascias.</p>
+    <div class="meta">Jake Rayner, Paul Dossis, Demi Adesanya · Interviews conducted in Sep 2026<br><a href="https://docs.google.com/document/d/1pDBc8JPLaoNIjcvX_CXpXv7THrmuOv7chT9iH5rWewc/edit?tab=t.0">View Stakeholder Interview Script</a></div>
   </div>
 </header>
 <nav class="toc"><div class="wrap">
-  <a href="#summary">Summary</a><a href="#who">Who</a><a href="#findings">Findings</a><a href="#brands">By brand</a><a href="#tensions">Tensions</a><a href="#constraints">Constraints</a><a href="#numbers">Numbers</a><a href="#next">Next</a><a href="#asks">Asks</a><a href="pdp-redesign-research-report.pdf" download>Download PDF</a>
+  <a href="#summary">Summary</a><a href="#who">Who</a><a href="#findings">Findings</a><a href="#brands">By brand</a><a href="#constraints">Constraints</a><a href="#numbers">Numbers</a><a href="#next">Next</a><a href="pdp-redesign-research-report.pdf" download>Download PDF</a>
 </div></nav>
 
 <main class="wrap">
 <section id="summary">
   <div class="eyebrow">01</div>
   <h2>Summary</h2><div class="rule"></div>
-  <p>Most paid and search traffic lands on a PDP first (43% of boohooMAN web sessions start on one), and most shoppers leave from there. On boohooMAN, 46% of sessions reach a product and 10% add to bag. On Karen Millen, 60 to 80% of PDP visits are abandoned. When trade is down, the teams add more offers to the page, which costs margin and leaves the page as it was.</p>
-  <ul class="b">
-    <li>Everyone thinks the page is too busy, and nobody would keep it as it is. Ancillary services, payment buttons, repeated delivery messages, open accordions and up to four recommendation carousels push the product out of view.</li>
-    <li>A sideboard, a beauty routine and a hoodie need different information at the top of the page. The fashion brands also feel they inherited a department-store page.</li>
-    <li>Every fashion brand asked for matching sets, "shop the look" and "ways to style". Where outfit building has been tested, it lifted AOV. Today the outfit data is put together by hand.</li>
-    <li>Deliver+ (Seel) brings Debenhams a large share of its profit, and the fashion brands want it off the PDP. No contract says where it has to go, so we'll test placements and hold the attach rate.</li>
-    <li>The app is the biggest channel and gets new features last. 50 to 60% of boohoo and PLT sales are on app, and Karen Millen's app converts best. boohooMAN's top ask is Apple Pay express on the app PDP.</li>
-    <li>Many of the problems start in the catalogue: dead colours, sizes nobody bought, unformatted marketplace copy, images at odd ratios and bundles made by hand.</li>
-    <li>Modules go live without being measured. The sponsored carousel went on without a test and later turned out to be the worst performer, and Subscribe & Save has no reporting. Each module on the next PDP needs a measurement plan.</li>
-  </ul>
+  <p>Most paid and search traffic lands on a PDP first. On boohooMAN, 46% of sessions reach a product page, but only 10% add to bag, and only 2 in 100 sessions check out. On Karen Millen, PDP abandonment is between 60 and 80%.</p><p>When trade is down, teams are asked to add more offers to the page, which costs margin. Stakeholders believe much of the lost conversion comes from how the product is presented on the page, not from price or offers.</p>
+  <ul class="b"><li>Every stakeholder thinks the page is too busy. Ancillary services, multiple payment buttons, repeated delivery messages, accordions open by default and up to four recommendation components all dilute the important product information a user needs to make a purchase decision.<br>A sideboard, a beauty product and a hoodie all need different information surfaced to the user. The fashion brands feel they inherited a department-store PDP during migration that has yet to be optimised for them.</li><li>Every fashion brand asked for matching sets in the new PDP. "Create/Shop The Look" and "Ways To Style" were mentioned several times. Where outfit building has previously been tested, it lifted AOV.<br>It is still unclear to the brands how they would build these outfits (manually, or by system / AI) and how they would manage them on the new PDP.</li><li>Deliver+ (Seel) brings Debenhams a large share of its profit, but Karen Millen wants it at the bottom of the PDP, if not removed and only presented at checkout. boohooMAN says having it on the PDP puts German shoppers off.</li><li>The app is the biggest channel for fashion, and gets new features last. 50 to 60% of boohoo and PLT sales are on app, and Karen Millen's app converts best. boohooMAN's top ask is for Apple Pay express on the app PDP.</li><li>Many problems start in the product data before it reaches the page: dead colours, sizes nobody buys, unformatted marketplace copy and images at odd aspect ratios with gaps around them.</li><li>Functionality goes live without always being properly measured. Stakeholders reported that the sponsored carousel went live without a test and later turned out to be the worst performer, and that Subscribe &amp; Save has no reporting. Every module on the new PDP needs tracking and a measurement plan.</li></ul>
 </section>
 
 <section id="who">
   <div class="eyebrow">02</div>
   <h2>Who we spoke to</h2><div class="rule"></div>
-  <div class="grid">
-    <div class="cell"><div class="fact-l">Sessions</div><div class="fact-v">6</div><div class="fact-d">8 to 17 Sep 2026, 25 to 60 minutes each</div></div>
-    <div class="cell"><div class="fact-l">Stakeholders</div><div class="fact-v">8</div><div class="fact-d">Trading, ecommerce and commercial leads</div></div>
-    <div class="cell"><div class="fact-l">Fascias</div><div class="fact-v">5</div><div class="fact-d">Debenhams, boohoo, boohooMAN, PLT, Karen Millen</div></div>
-    <div class="cell"><div class="fact-l">Insights logged</div><div class="fact-v">374</div><div class="fact-d">Each one quoted and timestamped in the research repo</div></div>
+  <div class="grid who-grid">
+    <div class="cell"><div class="fact-l">CORE Fascias</div><div class="fact-v">5</div><div class="fact-d">Debenhams, boohoo, boohooMAN, PLT, Karen Millen</div></div>
+    <div class="cell"><div class="fact-l">Insights logged</div><div class="fact-v">374</div><div class="fact-d">Each one quoted and timestamped in the UX Research Repo</div><div class="fact-src">UX Research Repo</div></div>
   </div>
   <div class="tbl"><table>
     <tr><th>Brand</th><th>Who</th><th>Role</th></tr>
-    <tr><td>Debenhams</td><td>Charlotte Cann, Katie Pike</td><td>Ecommerce and trading: conversion, promotions, pricing, badging</td></tr>
-    <tr><td>Debenhams</td><td>Richard Vanoli</td><td>Commercial leadership: sales and profit</td></tr>
-    <tr><td>boohooMAN</td><td>Elisha Cieslar, Matt Saunders</td><td>Trading and customer journey; Trading Director</td></tr>
-    <tr><td>boohoo, PLT</td><td>Scott Sparks</td><td>Head of Ecommerce: trading, merchandising, marketplace, publishing</td></tr>
-    <tr><td>Karen Millen</td><td>Harshini Patel, Olivia Millar</td><td>Brand and ecommerce leads</td></tr>
+    <tr><td>Debenhams</td><td>Charlotte Cann</td><td>Ecommerce Director</td></tr><tr><td>Debenhams</td><td>Richard Vanoli</td><td>Debenhams Managing Director</td></tr><tr><td>boohooMAN</td><td>Elisha Cieslar</td><td>Ecommerce Lead</td></tr><tr><td>boohoo, PLT</td><td>Scott Sparks</td><td>Head of Ecommerce</td></tr><tr><td>Karen Millen</td><td>Harshini Patel</td><td>Commercial Director</td></tr><tr><td>Debenhams</td><td>Katie Pike</td><td>Ecommerce Lead</td></tr><tr><td>boohooMAN</td><td>Matt Saunders</td><td>Trading Director</td></tr><tr><td>Karen Millen</td><td>Olivia Millar</td><td>Head of Ecommerce</td></tr>
   </table></div>
-  <p class="cap">Not yet interviewed: Debenhams Beauty and PrettyLittleThing (separately from boohoo). Each session followed the same question set: role, common complaints, biggest problem, evidence, impact, the "magic wand" six months from now, what not to touch, and legal or contractual constraints.</p>
 </section>
 
 <section id="findings">
   <div class="eyebrow">03</div>
   <h2>Findings</h2><div class="rule"></div>
+<div class="finding"><div class="n">01</div><div><h4>The page is cluttered, and the clutter hides what sells</h4><p>Every stakeholder raised this without being asked. Almost every request to the trading teams is to add something: a badge, a delivery method, membership, a promotion. Features go live one at a time, often without consultation, and when conversion is poor the usual response is to add more offers.</p><blockquote>Every message has to go everywhere. And I think it just ends up being noise that drowns out the information that the customer is actually looking for.<cite>Debenhams</cite></blockquote><blockquote>We just give way too many options on our PDP. Do you want Deliver+? Do you want Premier? PayPal or Apple Pay? Another product?<cite>Karen Millen</cite></blockquote><div class="so"><b>For consideration</b><p>Prioritise on the page everything a customer needs to decide to make a purchase decision, above every other component. The most important job the page has is to make this info easy for the user to find and interact with. Anything that isn't part of that decision (ancillary services, memberships, extra offers) becomes secondary or tertiary to this.</p></div></div></div>
+<div class="finding"><div class="n">02</div><div><h4>Different products need different pages</h4><p>Home and furniture is Debenhams' biggest category, and non-fashion brings in more money than fashion for them. A furniture shopper wants to know the products dimensions, what its made of and when it will arrive. On today's PDP the product dimensions sit in an accordion and there is no surfaced deliver info.</p><p>The fashion brands feel they inherited a page built for a department store. Karen Millen wants a premium, editorial feel. boohooMAN wants it "super straightforward". boohoo and PLT asked whether fast fashion needs a PDP that works more like TikTok Shop. In practice that means a video-led page where you swipe between products, check your size and buy in one tap, with the detail tucked away.</p><blockquote>As a customer… how big is it, what's it made of, what does it cost, how quickly can you deliver it to me? They're probably four very key things that you need to get across to me pretty damn quick.<cite>Debenhams</cite></blockquote><blockquote>Customers are just used to swiping between products and just shopping TikTok Shop… they can see the video, they can see the product. They're not overly bothered about too much information as long as it's got the relevant size… do we need a PDP that is more like a social, TikTok style?<cite>boohoo · PLT</cite></blockquote><div class="so"><b>For consideration</b><p>Build a cohesive set of components and a differentiated layout per category (fashion, home and furniture, beauty), that still follows the group-wide ordering in finding 01, with a more intentional UI theme per brand set by our design system/design tokens. For fast fashion, explore a video-led, swipe-and-buy format along side a more streamlined PDP.</p></div></div></div>
+<div class="finding"><div class="n">03</div><div><h4>Bigger imagery, more video</h4><p>Product images are king. Competitors PDP image carousels are much bigger, more modern and clearer than ours, on desktop particularly. Stakeholders asked for more product shot types (model, flat lay, fabric close-up) and video, which also helps paid social and shopping feeds. Marketplace images often arrive at odd ratios with white bands top and bottom. On app, the gallery stops at the last image instead of looping and images don't always fill their container.</p><div class="so"><b>For consideration</b><p>Explore bigger galleries: a desktop grid that takes at least half the page, full-width looping swipe on mobile web and app, more shot types and video, and a explore a solution for marketplace images in the incorrect aspect ratio (white bands top and bottom) if possible.</p></div></div></div>
+<div class="finding"><div class="n">04</div><div><h4>Premium has to put the product first and justify the price</h4><p>Karen Millen’s top benchmarked sites were Reiss and ME+EM, Hobbs and Whistles. These sites all have a much more premium look and feel to them. Beyond the key purchase info identified in section 01, KM have requested more editorial content on the PDP, prioritised over outfits, recommendations and ancillary services.</p><p>Today the page looks the same in a heavy sale and a full-price campaign, and full-price products need more editorial content on the PDP that explain the elevated price - "this is why this coat is £250".</p><div class="so"><b>For consideration</b><p>Give premium brands their own theme inside the group framework: an image-led hero, then description and size before any services, a distinct full-price look with detail editorial and storytelling components, differentiated from reduced price and sale formats.</p></div></div></div>
+<div class="finding"><div class="n">05</div><div><h4>Size, fit and colour problems start in the product data</h4><p>Discontinued colours stay on the site, crossed out. Dropdowns list sizes that were never bought, and legacy codes ("30" vs "30R") sit side by side. Some PDPs use size boxes, others dropdowns. boohooMAN buys hoodies in muscle, boxy and slim fits and in Plus and Tall, but the page doesn't show it. Trousers should ask for leg length, then waist. Beauty shades appear in a random order. A more granular and optimised size selection was one of boohooMAN’s top asks.</p><div class="so"><b>For consideration</b><p>Clean up product data at source: remove dead colours and unsold sizes, standardise size codes, and add all fit and leg-length attributes, with the ability for the user to easily select. Align size selection from one consistent set of components and only nuance where an uplift in conversion is identified.</p></div></div></div>
+<div class="finding"><div class="n">06</div><div><h4>Too much or too little - delivery, returns, promotions, payments</h4><p>Delivery and returns appear in "about 20 different places" across the journey (USP bar, badges, accordions, delivery protection), yet a furniture PDP has no delivery date displayed. Promo codes appear in the USP bar, are badged throughout the journey and again on the PDP - is this too much? An earlier test showed a closed product description beat an open one, but it has since been reopened. Express checkout buttons stack up and create choice overwhelm at a critical conversion point. Klarna is 70 to 80% of Netherlands sales but is not surfaced on the PDP.</p><div class="so"><b>For consideration</b><p>Use one delivery module with a "get it by" date, clearly state returns policy in one clear default place, introduce one promo slot with multiple offers behind this, clean and dedupe product data, re-test accordions closed by default, and explore fewer express payment buttons if possible, within what the contracts allow.</p></div></div></div>
+<div class="finding"><div class="n">07</div><div><h4>Ancillary services make money and take up a lot of the page</h4><p>Deliver+ (Seel), Unlimited / Premier, XCover, Task Rabbit and Subscribe &amp; Save take up to a third of a Debenhams PDP. Seel is attached to about 25% of Debenhams orders and is "a significant proportion of our overall profit". The fashion brands see it differently. Karen Millen says it is irrelevant on the PDP and would move it to the bottom of the page or off the page entirely. boohooMAN says it puts German shoppers off.</p><blockquote>It's worth a lot of money. Don't mess with it. Don't do anything without testing it.<cite>Debenhams</cite></blockquote><blockquote>That should be right at the bottom or perhaps even at checkout… it's irrelevant at PDP.<cite>Karen Millen</cite></blockquote><div class="so"><b>For consideration</b><p>Test placements: remove vs a compact row vs lower down on the page, bag or checkout only, and different rules by category, brand and region. Ensure we hold the attach rate, on Debenhams specifically.</p><p>The commercial owners of Deliver+ need to sign off any test. Non-debenhams stakeholders are not sure of the contractual or commercial obligations with Seel and what options we have to explore. Further business direction needed prior to any exploration.</p></div></div></div>
+<div class="finding"><div class="n">08</div><div><h4>Outfits and sets are the biggest growth idea</h4><p>The fashion brands described three separate needs, often all called "bundles":</p><ul class="b"><li>Matching set: the hoodie, sweat and jogger, or bikini top and bottom. boohooMAN will sell all sets as separates from Q1.</li><li>Shop the look: the exact items the model is wearing in the product image. The studio/ecom teams want to supply ensure the right SKUs are being listed, because an AI match can get them wrong (e.g. not the matching denim wash).</li><li>Ways to style: several looks for different occasions (e.g. M&amp;S style flat lays, ASOS dress up / dress down).</li></ul><p>Home and beauty also need similar patterns, with a nuanced use case: a bed with a duvet and pillows, a skincare bundle &amp; routine.</p><blockquote>If you look at a picture… he's got a really nice t-shirt underneath, he's got a pair of jeans, and you actually go, I just want to look like that guy.<cite>boohooMAN</cite></blockquote><div class="so"><b>For consideration</b><p>Review our existing components (carousels, grids, bundles) and bolster with new ones for matching sets, shop the look and ways to style, each with its own data source and managed by the brands. We then decide whether one flexible component covers every use case across the group, or each use case gets its own.</p></div></div></div>
+<div class="finding"><div class="n">09</div><div><h4>Recommendations: fewer zones, each with one job</h4><p>PDPs can carry up to four product carousels plus an SEO block. The same product sometimes appears more than once in a single carousel, and some recommendations lead customers away into categories that have nothing to do with what they're looking at. On Debenhams, the sponsored products carousel went live without a test, and when it was tested later the original version was the worst performer. On boohoo, "Handpicked for you" has worked well. boohoo and PLT asked whether we need four zones at all vs one continuous reccs component that is more personalised/optimised for the individual shopper.</p><p>Each brand also wants something different from recommendations. boohooMAN wants more of the same look, not alternatives. Debenhams wants inspiration and products that go with the item. boohoo and PLT want a mix, but were more keen on what products were shown - their own-brand products first, then other group brands, then marketplace, with plenty more to browse after that - rather than the format of the recommendations.</p><div class="so"><b>For consideration</b><p>Order the zones down the page by job: this product, then things that go with it (complete the look, matching sets), then things to buy in addition to it or instead of it, then recently viewed. Each label says what the zone does, products are deduped, each brand picks the component style (carousel or grid) and the engine behind it, and every zone is tracked and optimised. Further explorations into personalisation and making reccs hyper relevant to the user should also be considered for PLT and Boohoo.</p></div></div></div>
+<div class="finding"><div class="n">10</div><div><h4>Who sees what should depend on the customer</h4><p>boohoo and PLT want recommendations based on what the customer is looking at, what they've looked at before and what we think they'll want to buy. Premier and Royalty members currently see messages that don't apply to them: a Premier member doesn't need "free returns in 21 days" or "next day delivery from £5.99", because they already get free next-day delivery. Debenhams wants to stop repeating messages the customer has already seen, such as a code from the banner they clicked, and to stop showing home and garden offers to someone who only buys beauty. boohooMAN wants to change what is prominent by region.</p><div class="so"><b>For consideration</b><p>Decide for each module what changes with who is looking: member status, browsing and purchase history, category and region. Members see their benefits, not the upsell. Personalisation decides what fills each zone and what is populated on page on a per-user-type and per-region basis.</p></div></div></div>
+<div class="finding"><div class="n">11</div><div><h4>Social proof should come from what customers do</h4><p>Debenhams wants reviews moved up from the bottom of the page and made richer: fit and quality for fashion, skin type for beauty. boohooMAN says German shoppers want ratings, reviews and secure payments before they trust the product or brand. boohoo and PLT have no reviews: the contract was renewed without boohoo, however products don't live long enough to collect them, and boohoo reviews from Debenhams customers averaged 2.8 to 3.2. They would rather show wishlist counts from our own data.</p><div class="so"><b>For consideration</b><p>Optimise reviews UI, make reviews a movable module each brand can switch on and place, with fit and quality information surfaced where we have it. Test wishlist counts as social proof on boohoo and PLT. Reconsider taggstar UI, placement and frequency, and reposition as secondary to the above for social proof.</p></div></div></div>
+<div class="finding"><div class="n">12</div><div><h4>App first in revenue, last in features</h4><p>50 to 60% of boohoo and PLT sales are on app. Karen Millen is about 80% mobile and its app converts best. The app still gets changes months after web. The brands are aware there are resourcing and tehcnical challenges that lead to this, but the ask remains. Apple Pay express on the app PDP was the single most urgent ask from boohooMAN.</p><div class="so"><b>For consideration</b><p>Design web and app together from the same components (some native nuance will still exist), ship and measure on web, then move to app.</p></div></div></div>
+<div class="finding"><div class="n">13</div><div><h4>We can't see what works</h4><p>The brands reported that there is no robust per-widget reporting and no PDP funnel, the move from PowerBI to Looker has left gaps, and the heatmap and session-replay tool the business used to have (Contentsquare) has gone. When trade is down, teams are left with no levers other than to run promotions and give away margin.</p><div class="so"><b>For consideration</b><p>Ship every module with tracking and a test plan, keep a test register, and bring back heatmaps and session replay (Contentsquare or an alternative).</p></div></div></div>
 
-  <div class="finding"><div class="n">01</div><div>
-    <h4>The page is cluttered, and the clutter hides what sells</h4>
-    <p>Every stakeholder raised this without being asked. Almost every request to the trading teams is to add something: a badge, a delivery method, membership, a promotion. Features go live one at a time and nobody looks at the page as a whole. Debenhams heatmaps show many elements that hardly anyone touches.</p>
-    <blockquote>Every message has to go everywhere. And I think it just ends up being noise that drowns out the information that the customer is actually looking for.<cite>Debenhams ecommerce</cite></blockquote>
-    <blockquote>We're just given way too many options on our PDP. Do you want Deliver+? Do you want Premier? PayPal or Apple Pay? Another product?<cite>Karen Millen</cite></blockquote>
-    <div class="so"><b>So we will</b>Design a "decision zone". Above Add to bag, show only what helps someone choose this product. Everything else goes below, and each module there has an owner and a metric.</div>
-  </div></div>
-
-  <div class="finding"><div class="n">02</div><div>
-    <h4>Different products need different pages</h4>
-    <p>Home and furniture is Debenhams' biggest category, and non-fashion brings in more money than fashion. A furniture shopper wants four answers fast: how big, what's it made of, what does it cost, when can it arrive. On today's sideboard PDP the dimensions sit in an accordion and there is no delivery date. The fashion brands feel they inherited a page built for a department store. Karen Millen wants a premium, editorial feel. boohooMAN wants it "super straightforward". A category A/B test (fashion, home, beauty) is already being set up with Becca.</p>
-    <blockquote>As a customer… how big is it, what's it made of, what does it cost, how quickly can you deliver it to me? They're probably four very key things that you need to get across to me pretty damn quick.<cite>Debenhams leadership</cite></blockquote>
-    <div class="so"><b>So we will</b>Build one set of components with a layout per category (fashion, home and furniture, beauty), a theme per brand set by design tokens, and a key facts block for each category. Start with the categories that make the most money.</div>
-  </div></div>
-
-  <div class="finding"><div class="n">03</div><div>
-    <h4>Outfits and sets are the biggest growth idea</h4>
-    <p>The fashion brands described three separate needs, often all called "bundles":</p>
-    <ul class="b">
-      <li>Matching set: the hoodie, sweat and jogger, or bikini top and bottom, switchable at the top of the page (as Reiss does). boohooMAN will sell all sets as separates from Q1.</li>
-      <li>Shop the look: the exact items the model is wearing. The studio has to supply the right SKU and wash, because an AI match gets them wrong.</li>
-      <li>Ways to style: several looks for different occasions (Karen Millen's "7-day dressing", M&S flat lays, ASOS dress up / dress down).</li>
-    </ul>
-    <p>Home and beauty need the same patterns: a bed with a duvet and pillows, a skincare routine. A Karen Millen outfit test lifted AOV "massively", but outfits are built by hand across thousands of styles.</p>
-    <blockquote>If you look at a picture… he's got a really nice t-shirt underneath, he's got a pair of jeans, and you actually go, I just want to look like that guy.<cite>boohooMAN</cite></blockquote>
-    <div class="so"><b>So we will</b>Design three distinct components (Matching set, Shop the look, Ways to style), each with its own data source, and work with Product and PIM on feeding outfit data from the studio at shoot time.</div>
-  </div></div>
-
-  <div class="finding"><div class="n">04</div><div>
-    <h4>Ancillary services make money and take up a lot of the page</h4>
-    <p>Deliver+ (Seel), Unlimited / Premier, XCover, Task Rabbit and Subscribe & Save take up to a third of a Debenhams PDP. Seel is attached to about 25% of Debenhams orders and is "a significant proportion of our overall profit". The fashion brands see it differently. Karen Millen calls it irrelevant on a premium PDP and would move it to checkout, and boohooMAN says it puts German shoppers off. No contract sets its size or placement.</p>
-    <blockquote>It's worth a lot of money. Don't mess with it. Don't do anything without testing it.<cite>Debenhams leadership</cite></blockquote>
-    <blockquote>That should be right at the bottom or perhaps even at checkout… it's irrelevant at PDP.<cite>Karen Millen</cite></blockquote>
-    <div class="so"><b>So we will</b>Test placements: a compact row below the CTAs, bag or checkout only, and different rules by category, brand and region. Every variant has to hold the attach rate. Members stop seeing the membership upsell.</div>
-  </div></div>
-
-  <div class="finding"><div class="n">05</div><div>
-    <h4>Recommendations: fewer zones, each with one job</h4>
-    <p>Pages carry up to four carousels plus an SEO block. Labels like "We think you'll like" and "Handpicked for you" mean nothing to shoppers. The same product appears several times in one carousel, and some modules send people back to other categories. The Debenhams sponsored carousel went on without a test and turned out to be the worst-performing variant. "Handpicked for you" has worked well on boohoo. The brands want different mixes: boohooMAN wants more of the same look rather than alternatives, Debenhams wants inspiration and complements, and boohoo and PLT want own brand first with a long browse below.</p>
-    <div class="so"><b>So we will</b>Use at most three zones below the CTAs: complete it, alternatives, recently viewed. Each label says what the zone does, products are deduped by style with colour swatches, each brand picks the display (carousel or grid) and the engine behind it, and every widget is reported on.</div>
-  </div></div>
-
-  <div class="finding"><div class="n">06</div><div>
-    <h4>Size, fit and colour problems start in the product data</h4>
-    <p>Discontinued colours stay on the page, crossed out. Dropdowns list sizes that were never bought, and legacy codes ("30" vs "30R") sit side by side. Some PDPs use size boxes, others dropdowns. boohooMAN buys hoodies in muscle, boxy and slim fits and in Plus and Tall, but the page doesn't show it. Trousers should ask for leg length, then waist. Beauty shades appear in a random order. Size is the boohooMAN CEO's top topic.</p>
-    <div class="so"><b>So we will</b>Design one variant selector (range → fit → colour → size), with display rules that hide dead colours and never-bought sizes, and agree a data clean-up with Product.</div>
-  </div></div>
-
-  <div class="finding"><div class="n">07</div><div>
-    <h4>Say it once: delivery, returns, promotions, payments</h4>
-    <p>Delivery and returns appear in "about 20 different places" (USP bar, badges, accordions, delivery protection), yet a furniture PDP has no delivery date. Promo codes appear in the USP bar, on the badge and again on the page. An earlier test showed a closed product description beat an open one, but it has since been reopened. Express checkout buttons stack up, and only PayPal is contractual (as stated; to be confirmed).</p>
-    <div class="so"><b>So we will</b>Use one delivery and returns module with a "get it by" date, one promo slot with dedupe rules, accordions closed by default, and one device-native express button alongside the contracted PayPal.</div>
-  </div></div>
-
-  <div class="finding"><div class="n">08</div><div>
-    <h4>Bigger imagery, more video</h4>
-    <p>Competitors give images at least half the desktop page and the full width on mobile. Stakeholders asked for more shot types (model, flat lay, fabric close-up) and video, which also helps paid social and shopping feeds. Marketplace images arrive at odd ratios with white bands. On app, the gallery stops at the last image instead of looping.</p>
-    <div class="so"><b>So we will</b>Build a desktop image grid with a sticky buy column, test full bleed against the current peek on mobile, add video to the gallery, make it loop, and normalise marketplace images to 2:3.</div>
-  </div></div>
-
-  <div class="finding"><div class="n">09</div><div>
-    <h4>App first in revenue, last in features</h4>
-    <p>50 to 60% of boohoo and PLT sales are on app. Karen Millen is about 80% mobile and its app converts best. The app still gets changes months after web. Apple Pay express on the app PDP was the single most urgent ask from boohooMAN.</p>
-    <div class="so"><b>So we will</b>Design web and app together from the same components, ship and measure on web, then move to app on the new glass wrapper.</div>
-  </div></div>
-
-  <div class="finding"><div class="n">10</div><div>
-    <h4>We can't see what works</h4>
-    <p>There is no per-widget reporting and no PDP funnel, the move from PowerBI to Looker has left gaps, and the heatmap and session-replay tool we used to have (Contentsquare) has gone. When trade is down, teams run promotions and give away margin.</p>
-    <div class="so"><b>So we will</b>Ship every module with tracking and a test plan, keep a test register, and ask for Becca's existing heatmap and interaction data before removing anything.</div>
-  </div></div>
 </section>
 
 <section id="brands">
   <div class="eyebrow">04</div>
   <h2>What each brand needs</h2><div class="rule"></div>
-  <div class="brands">
-    <div class="brand"><h4>Debenhams</h4><div class="eyebrow">Department store</div>
-      <div class="job">Answer the questions each category raises, straight away, and keep the profit drivers working.</div>
-      <span class="tag">Category layouts</span><span class="tag">Key facts</span><span class="tag">Delivery date</span><span class="tag">Reviews higher</span><span class="tag">Complementary recs</span><span class="tag">Marketplace copy + images</span><span class="tag">Protect Seel attach</span></div>
-    <div class="brand"><h4>boohooMAN</h4><div class="eyebrow">Easy menswear</div>
-      <div class="job">"Just buy this and check out." Tell him what to wear.</div>
-      <span class="tag">Shop the look</span><span class="tag">Matching sets</span><span class="tag">Fit + range switch</span><span class="tag">Leg then waist</span><span class="tag">Size clean-up</span><span class="tag">Apple Pay on app</span><span class="tag">Video</span><span class="tag">DE trust</span></div>
-    <div class="brand"><h4>boohoo · PLT</h4><div class="eyebrow">Fast fashion, app first</div>
-      <div class="job">A PDP built for fast fashion and for shoppers arriving from social: swipe, video, size, buy.</div>
-      <span class="tag">One rec zone</span><span class="tag">Set pills</span><span class="tag">Mini PLP</span><span class="tag">Favourites as proof</span><span class="tag">Member-aware</span><span class="tag">Klarna by country</span><span class="tag">No reviews yet</span></div>
-    <div class="brand"><h4>Karen Millen</h4><div class="eyebrow">Premium womenswear</div>
-      <div class="job">Sell the product and justify the price. Look like Reiss.</div>
-      <span class="tag">Premium theme</span><span class="tag">Full-screen hero</span><span class="tag">7-day dressing</span><span class="tag">Sale vs full price</span><span class="tag">Detail storytelling</span><span class="tag">Size dropdown</span><span class="tag">Deliver+ off PDP</span></div>
-  </div>
-</section>
-
-<section id="tensions">
-  <div class="eyebrow">05</div>
-  <h2>Where stakeholders disagree</h2><div class="rule"></div>
-  <div class="tbl"><table>
-    <tr><th>Question</th><th>One view</th><th>The other</th><th>How we'll resolve it</th></tr>
-    <tr><td>Deliver+ on the PDP</td><td>Major profit, protect it</td><td>Irrelevant at PDP, move to checkout</td><td>Placement test, attach rate guardrail</td></tr>
-    <tr><td>Alternatives or depth</td><td>Inspire with alternatives (Debenhams)</td><td>Same look only (boohooMAN)</td><td>Zone mix configured per brand</td></tr>
-    <tr><td>Reviews</td><td>Higher up the page (Debenhams, DE trust)</td><td>Not now (boohoo, PLT)</td><td>Movable module, on/off per brand</td></tr>
-    <tr><td>Mobile gallery</td><td>Full bleed like competitors</td><td>Peek saves height</td><td>A/B test: time to CTA and ATB</td></tr>
-    <tr><td>Sizes across colours</td><td>Show them (Debenhams)</td><td>Hide them (youth brands)</td><td>Brand toggle</td></tr>
-    <tr><td>Express checkout</td><td>Too many buttons</td><td>Apple Pay is the top ask</td><td>One device-native button</td></tr>
-    <tr><td>Group or bespoke</td><td>One framework, fast to ship</td><td>A premium brand can't look like a marketplace</td><td>Shared components, brand themes</td></tr>
-  </table></div>
+  <div class="brands"><div class="brand"><h4>Debenhams</h4><div class="eyebrow">Department store</div><div class="job">Clear product information straight away, while keeping the profit drivers working.</div><span class="tag">Category layouts</span><span class="tag">Key facts</span><span class="tag">Delivery date</span><span class="tag">Reviews higher</span><span class="tag">Complementary recs</span><span class="tag">Marketplace copy + images</span><span class="tag">Protect Seel attach rate</span></div><div class="brand"><h4>boohooMAN</h4><div class="eyebrow">Easy menswear</div><div class="job">Keep it simple, and tell him what to wear.</div><span class="tag">Shop the look</span><span class="tag">Matching sets</span><span class="tag">Fit + range switch</span><span class="tag">Leg then waist</span><span class="tag">Size clean-up</span><span class="tag">Apple Pay on app</span><span class="tag">Video</span><span class="tag">DE trust</span></div><div class="brand"><h4>boohoo · PLT</h4><div class="eyebrow">Fast fashion, app first</div><div class="job">Browse and Shop at pace, with social intergration - own brand up front with personalised endless recommendations</div><span class="tag">Fewer rec zones</span><span class="tag">Mini PLP</span><span class="tag">Favourites as proof</span><span class="tag">Member-aware</span><span class="tag">Klarna by country</span><span class="tag">No reviews yet</span></div><div class="brand"><h4>Karen Millen</h4><div class="eyebrow">Premium womenswear</div><div class="job">More premium and editorial - Put the product first and justify the price, remove the clutter.</div><span class="tag">Premium theme</span><span class="tag">Full-screen hero</span><span class="tag">EDITORIAL CONTENT</span><span class="tag">Sale vs full price</span><span class="tag">Detail storytelling</span></div></div>
 </section>
 
 <section id="constraints">
-  <div class="eyebrow">06</div>
+  <div class="eyebrow">05</div>
   <h2>What can't move</h2><div class="rule"></div>
   <p class="warn">As stated in interviews. Not yet confirmed by Finance or Legal.</p>
   <div class="tbl"><table>
     <tr><th>Item</th><th>Status</th></tr>
-    <tr><td>PayPal express on PDP</td><td>Contractual: "everywhere and at the top of every list". Exact wording to be confirmed from the obligations list.</td></tr>
-    <tr><td>Deliver+ / Seel</td><td>Not contractual for size or placement. Commercial guardrail on attach rate.</td></tr>
-    <tr><td>US pricing policy</td><td>Must stay on the US PDP.</td></tr>
-    <tr><td>AI generated imagery label</td><td>Must stay (EU AI Act Art. 50); already in the design system.</td></tr>
-    <tr><td>BNPL / finance box</td><td>Unknown whether the law requires it or we added it to be safe. To check.</td></tr>
-    <tr><td>Fibre content</td><td>May be a legal requirement on the PDP. To check.</td></tr>
-    <tr><td>Reviews on boohoo / PLT</td><td>Not in the renewed reviews contract.</td></tr>
+    <tr><td>PayPal express on PDP</td><td>Contractual: "everywhere and at the top of every payment list". <span class="warn">Requirements for all payment methods needed.</span></td></tr><tr><td>Deliver+ / Seel</td><td>No contractual obligations for size or placement. Strong commercial guardrail on attach rate.</td></tr><tr><td>US pricing policy</td><td>Must stay on the US PDP (raised by boohoo · PLT and boohooMAN). Nobody stated what the policy covers</td></tr><tr><td>AI generated imagery label</td><td>Must stay: when AI-generated imagery or content is used, the PDP has to say so (EU AI Act, Article 50).</td></tr><tr><td>BNPL / finance box</td><td>Unknown whether contracts/law requires it or we added it to be safe. <span class="warn">Requirements needed</span></td></tr><tr><td>Materials</td><td>What the product is made of, e.g. "70% polyester". A legal requirement on the garment label. boohooMAN wasn't sure it is required on the PDP. boohoo previously fined for not showing correct info.</td></tr><tr><td>Reviews on boohoo / PLT</td><td>Not in the renewed reviews contract, and boohoo · boohoo &amp; PLT want to explore a wishlist count instead</td></tr>
   </table></div>
 </section>
 
 <section id="numbers">
-  <div class="eyebrow">07</div>
-  <h2>The numbers we heard</h2><div class="rule"></div>
-  <div class="grid">
-    <div class="cell"><div class="fact-l">boohooMAN web landing on PDP</div><div class="fact-v">43%</div></div>
-    <div class="cell"><div class="fact-l">boohooMAN reach PDP → add to bag</div><div class="fact-v">46% / 10%</div><div class="fact-d">About 2 in 100 sessions purchase</div></div>
-    <div class="cell"><div class="fact-l">Karen Millen PDP abandonment</div><div class="fact-v">60-80%</div></div>
-    <div class="cell"><div class="fact-l">boohoo + PLT sales on app</div><div class="fact-v">50-60%</div></div>
-    <div class="cell"><div class="fact-l">Debenhams orders with Seel</div><div class="fact-v">~25%</div><div class="fact-d">Below market average</div></div>
-    <div class="cell"><div class="fact-l">boohooMAN Germany, YoY week</div><div class="fact-v">−35%</div></div>
-    <div class="cell"><div class="fact-l">Karen Millen AOV</div><div class="fact-v">£175+</div></div>
-    <div class="cell"><div class="fact-l">Klarna share of NL sales (boohoo)</div><div class="fact-v">70-80%</div><div class="fact-d">Shown after PayPal</div></div>
-  </div>
+  <div class="eyebrow">06</div>
+  <h2>The numbers</h2><div class="rule"></div>
+  <div class="grid"><div class="cell"><div class="fact-l">boohooMAN web landing on PDP</div><div class="fact-v">43%</div></div><div class="cell"><div class="fact-l">boohooMAN reach PDP → add to bag</div><div class="fact-v">46% / 10%</div><div class="fact-d">About 2 in 100 sessions purchase</div></div><div class="cell"><div class="fact-l">Karen Millen PDP abandonment</div><div class="fact-v">60-80%</div></div><div class="cell"><div class="fact-l">boohoo + PLT sales on app</div><div class="fact-v">50-60%</div></div><div class="cell"><div class="fact-l">Debenhams orders with Seel</div><div class="fact-v">~25%</div></div><div class="cell"><div class="fact-l">boohooMAN Germany, YoY week</div><div class="fact-v">−35%</div></div><div class="cell"><div class="fact-l">Karen Millen AOV</div><div class="fact-v">£175+</div></div><div class="cell"><div class="fact-l">Klarna share of NL sales (boohoo)</div><div class="fact-v">70-80%</div></div></div>
   <p class="cap">Figures are as quoted in interviews and are yet to be checked against source reports.</p>
-  <h3><span class="tick"></span>What has already been tested</h3>
-  <ul class="b">
-    <li>Product description closed beat open (Debenhams). It was rolled out and has since been reopened.</li>
-    <li>The original four-carousel set-up, including sponsored products, was the worst performer. A new variant now converts better (Debenhams).</li>
-    <li>Outfit building lifted AOV "massively" (Karen Millen, with Becca).</li>
-    <li>"Handpicked for you" performs strongly (boohoo, PLT).</li>
-    <li>Continuous gallery vs pagination: no negative impact on conversion (pre-migration).</li>
-  </ul>
+  <h3>Tested before the interviews</h3>
+  <ul class="b"><li>Product description closed beat open (Debenhams). It was rolled out and has since been reopened.</li><li>The original four-carousel set-up, including sponsored products, was the worst performer. A new variant now converts better (Debenhams).</li><li>Outfit building lifted AOV "massively" (Karen Millen, with Becca).</li><li>"Handpicked for you" performs strongly (boohoo, PLT).</li><li>Continuous gallery vs pagination: no negative impact on conversion (pre-migration).</li><li>Taggstar social proof drives value in A/B tests (boohoo).</li></ul>
+  <h3>Tested since the interviews</h3>
+  <ul class="b"><li>A/B tests of the module order below Add to bag on mobile, in Fashion, Home and Beauty, against the current live PDP.</li></ul>
+  <div class="ab"><div class="ab-cat"><h4>Fashion</h4><div class="ab-scroll"><div class="ab-row"><div class="ab-col"><h5>Current</h5><p class="ab-cap">Live page</p><div class="ab-page"><div class="ab-m top hero">Image Carousel</div><div class="ab-m top">Brand Name / Product Title</div><div class="ab-m top">Badging</div><div class="ab-m top">Colour</div><div class="ab-m top">Size</div><div class="ab-m top">Add to Bag / PayPal Checkout</div><div class="ab-gap"></div><div class="ab-m" style="background:#CCCCCC"><i>01</i>Unlimited</div><div class="ab-m" style="background:#A2C4C9"><i>02</i>Deliver+</div><div class="ab-m" style="background:#D9EAD3"><i>03</i>Delivery / Returns</div><div class="ab-m" style="background:#FFF2CC"><i>04</i>BNPL</div><div class="ab-m" style="background:#FCE5CD"><i>05</i>Bundle</div><div class="ab-m" style="background:#FFFFFF"><i>06</i>Subscribe &amp; Save</div><div class="ab-m" style="background:#F4CCCC"><i>07</i>Handpicked For You</div><div class="ab-m" style="background:#D9D2E9"><i>08</i>At a Glance</div><div class="ab-m" style="background:#D9D2E9"><i>09</i>Accordions</div><div class="ab-m" style="background:#EAD1DC"><i>10</i>We Think You&#x27;ll Like</div><div class="ab-m" style="background:#EAD1DC"><i>11</i>Sponsored Products</div><div class="ab-m" style="background:#A4C2F4"><i>12</i>Reviews</div><div class="ab-m" style="background:#FFFFFF"><i>13</i>Recently Viewed</div><div class="ab-m fade">Flixmedia</div></div></div><div class="ab-col"><h5>Option A<span class="ab-won">Won</span></h5><p class="ab-cap">Description closed by default</p><div class="ab-page won"><div class="ab-m top hero">Image Carousel</div><div class="ab-m top">Brand Name / Product Title</div><div class="ab-m top">Badging</div><div class="ab-m top">Colour</div><div class="ab-m top">Size</div><div class="ab-m top">Add to Bag / PayPal Checkout</div><div class="ab-gap"></div><div class="ab-m" style="background:#FFF2CC"><i>01</i>BNPL</div><div class="ab-m" style="background:#CCCCCC"><i>02</i>Unlimited</div><div class="ab-m" style="background:#D9EAD3"><i>03</i>Delivery / Returns</div><div class="ab-m" style="background:#A2C4C9"><i>04</i>Deliver+</div><div class="ab-m" style="background:#D9D2E9"><i>05</i>At a Glance</div><div class="ab-m" style="background:#D9D2E9"><i>06</i>Accordions</div><div class="ab-m" style="background:#F4CCCC"><i>07</i>Handpicked For You</div><div class="ab-m" style="background:#FCE5CD"><i>08</i>Bundle</div><div class="ab-m" style="background:#FFFFFF"><i>09</i>Subscribe &amp; Save</div><div class="ab-m" style="background:#A4C2F4"><i>10</i>Reviews</div><div class="ab-m" style="background:#EAD1DC"><i>11</i>We Think You&#x27;ll Like</div><div class="ab-m" style="background:#EAD1DC"><i>12</i>Sponsored Products</div><div class="ab-m" style="background:#FFFFFF"><i>13</i>Recently Viewed</div><div class="ab-m fade">Flixmedia</div></div></div><div class="ab-col"><h5>Option B</h5><p class="ab-cap">Description closed by default</p><div class="ab-page"><div class="ab-m top hero">Image Carousel</div><div class="ab-m top">Brand Name / Product Title</div><div class="ab-m top">Badging</div><div class="ab-m top">Colour</div><div class="ab-m top">Size</div><div class="ab-m top">Add to Bag / PayPal Checkout</div><div class="ab-gap"></div><div class="ab-m" style="background:#FFF2CC"><i>01</i>BNPL</div><div class="ab-m" style="background:#D9D2E9"><i>02</i>At a Glance</div><div class="ab-m" style="background:#D9D2E9"><i>03</i>Accordions</div><div class="ab-m" style="background:#D9EAD3"><i>04</i>Delivery / Returns</div><div class="ab-m" style="background:#CCCCCC"><i>05</i>Unlimited</div><div class="ab-m" style="background:#A2C4C9"><i>06</i>Deliver+</div><div class="ab-m" style="background:#F4CCCC"><i>07</i>Handpicked For You</div><div class="ab-m" style="background:#FCE5CD"><i>08</i>Bundle</div><div class="ab-m" style="background:#FFFFFF"><i>09</i>Subscribe &amp; Save</div><div class="ab-m" style="background:#A4C2F4"><i>10</i>Reviews</div><div class="ab-m" style="background:#EAD1DC"><i>11</i>We Think You&#x27;ll Like</div><div class="ab-m" style="background:#EAD1DC"><i>12</i>Sponsored Products</div><div class="ab-m" style="background:#FFFFFF"><i>13</i>Recently Viewed</div><div class="ab-m fade">Flixmedia</div></div></div></div></div></div><div class="ab-cat"><h4>Home</h4><p class="ab-res">Options A and B both underperformed.</p><div class="ab-scroll"><div class="ab-row"><div class="ab-col"><h5>Current</h5><p class="ab-cap">Live page</p><div class="ab-page"><div class="ab-m top hero">Image Carousel</div><div class="ab-m top">Brand Name / Product Title</div><div class="ab-m top">Badging</div><div class="ab-m top">Colour</div><div class="ab-m top">Size</div><div class="ab-m top">Add to Bag / PayPal Checkout</div><div class="ab-gap"></div><div class="ab-m" style="background:#CCCCCC"><i>01</i>Unlimited</div><div class="ab-m" style="background:#E6B8AF"><i>02</i>Cover Genius</div><div class="ab-m" style="background:#A2C4C9"><i>03</i>Deliver+</div><div class="ab-m" style="background:#CFE2F3"><i>04</i>Task Rabbit</div><div class="ab-m" style="background:#D9EAD3"><i>05</i>Delivery / Returns</div><div class="ab-m" style="background:#FFF2CC"><i>06</i>BNPL</div><div class="ab-m" style="background:#FCE5CD"><i>07</i>Bundle</div><div class="ab-m" style="background:#F4CCCC"><i>08</i>Handpicked For You</div><div class="ab-m" style="background:#D9D2E9"><i>09</i>At a Glance</div><div class="ab-m" style="background:#D9D2E9"><i>10</i>Accordions</div><div class="ab-m" style="background:#EAD1DC"><i>11</i>We Think You&#x27;ll Like</div><div class="ab-m" style="background:#EAD1DC"><i>12</i>Sponsored Products</div><div class="ab-m" style="background:#A4C2F4"><i>13</i>Reviews</div><div class="ab-m" style="background:#FFFFFF"><i>14</i>Recently Viewed</div><div class="ab-m fade">Flixmedia</div><div class="ab-m fade">Subscribe &amp; Save</div></div></div><div class="ab-col"><h5>Option A</h5><p class="ab-cap">Description closed by default</p><div class="ab-page"><div class="ab-m top hero">Image Carousel</div><div class="ab-m top">Brand Name / Product Title</div><div class="ab-m top">Badging</div><div class="ab-m top">Colour</div><div class="ab-m top">Size</div><div class="ab-m top">Add to Bag / PayPal Checkout</div><div class="ab-gap"></div><div class="ab-m" style="background:#FFF2CC"><i>01</i>BNPL</div><div class="ab-m" style="background:#CCCCCC"><i>02</i>Unlimited</div><div class="ab-m" style="background:#D9EAD3"><i>03</i>Delivery / Returns</div><div class="ab-m" style="background:#A2C4C9"><i>04</i>Deliver+</div><div class="ab-m" style="background:#E6B8AF"><i>05</i>Cover Genius</div><div class="ab-m" style="background:#CFE2F3"><i>06</i>Task Rabbit</div><div class="ab-m" style="background:#D9D2E9"><i>07</i>At a Glance</div><div class="ab-m" style="background:#D9D2E9"><i>08</i>Accordions</div><div class="ab-m" style="background:#FCE5CD"><i>09</i>Bundle</div><div class="ab-m" style="background:#F4CCCC"><i>10</i>Handpicked For You</div><div class="ab-m" style="background:#A4C2F4"><i>11</i>Reviews</div><div class="ab-m" style="background:#EAD1DC"><i>12</i>We Think You&#x27;ll Like</div><div class="ab-m" style="background:#EAD1DC"><i>13</i>Sponsored Products</div><div class="ab-m" style="background:#FFFFFF"><i>14</i>Recently Viewed</div><div class="ab-m fade">Flixmedia</div><div class="ab-m fade">Subscribe &amp; Save</div></div></div><div class="ab-col"><h5>Option B</h5><p class="ab-cap">Description closed by default</p><div class="ab-page"><div class="ab-m top hero">Image Carousel</div><div class="ab-m top">Brand Name / Product Title</div><div class="ab-m top">Badging</div><div class="ab-m top">Colour</div><div class="ab-m top">Size</div><div class="ab-m top">Add to Bag / PayPal Checkout</div><div class="ab-gap"></div><div class="ab-m" style="background:#FFF2CC"><i>01</i>BNPL</div><div class="ab-m" style="background:#D9D2E9"><i>02</i>At a Glance</div><div class="ab-m" style="background:#D9D2E9"><i>03</i>Accordions</div><div class="ab-m" style="background:#D9EAD3"><i>04</i>Delivery / Returns</div><div class="ab-m" style="background:#CCCCCC"><i>05</i>Unlimited</div><div class="ab-m" style="background:#A2C4C9"><i>06</i>Deliver+</div><div class="ab-m" style="background:#E6B8AF"><i>07</i>Cover Genius</div><div class="ab-m" style="background:#CFE2F3"><i>08</i>Task Rabbit</div><div class="ab-m" style="background:#FCE5CD"><i>09</i>Bundle</div><div class="ab-m" style="background:#F4CCCC"><i>10</i>Handpicked For You</div><div class="ab-m" style="background:#A4C2F4"><i>11</i>Reviews</div><div class="ab-m" style="background:#EAD1DC"><i>12</i>We Think You&#x27;ll Like</div><div class="ab-m" style="background:#EAD1DC"><i>13</i>Sponsored Products</div><div class="ab-m" style="background:#FFFFFF"><i>14</i>Recently Viewed</div><div class="ab-m fade">Flixmedia</div><div class="ab-m fade">Subscribe &amp; Save</div></div></div></div></div></div><div class="ab-cat"><h4>Beauty</h4><p class="ab-res">Options A and B both underperformed.</p><div class="ab-scroll"><div class="ab-row"><div class="ab-col"><h5>Current</h5><p class="ab-cap">Live page</p><div class="ab-page"><div class="ab-m top hero">Image Carousel</div><div class="ab-m top">Brand Name / Product Title</div><div class="ab-m top">Badging</div><div class="ab-m top">Colour</div><div class="ab-m top">Size</div><div class="ab-m" style="background:#EFEFEF">Foundation/Makeup/Skincare Finder</div><div class="ab-m top">Quantity Selector</div><div class="ab-m top">Add to Bag / PayPal Checkout</div><div class="ab-gap"></div><div class="ab-m" style="background:#CCCCCC"><i>01</i>Unlimited</div><div class="ab-m" style="background:#E6B8AF"><i>02</i>Cover Genius</div><div class="ab-m" style="background:#A2C4C9"><i>03</i>Deliver+</div><div class="ab-m" style="background:#D9EAD3"><i>04</i>Delivery / Returns</div><div class="ab-m" style="background:#FFF2CC"><i>05</i>BNPL</div><div class="ab-m" style="background:#FFFFFF"><i>06</i>Subscribe &amp; Save</div><div class="ab-m" style="background:#CFE2F3"><i>07</i>GWP</div><div class="ab-m" style="background:#FCE5CD"><i>08</i>Bundle</div><div class="ab-m" style="background:#D9D2E9"><i>09</i>At a Glance</div><div class="ab-m" style="background:#D9D2E9"><i>10</i>Accordions</div><div class="ab-m plain"><i>11</i>Flixmedia</div><div class="ab-m" style="background:#EAD1DC"><i>12</i>We Think You&#x27;ll Like</div><div class="ab-m" style="background:#EAD1DC"><i>13</i>Sponsored Products</div><div class="ab-m" style="background:#A4C2F4"><i>14</i>Reviews</div><div class="ab-m" style="background:#FFFFFF"><i>15</i>Recently Viewed</div></div></div><div class="ab-col"><h5>Option A</h5><p class="ab-cap">Description closed by default</p><div class="ab-page"><div class="ab-m top hero">Image Carousel</div><div class="ab-m top">Brand Name / Product Title</div><div class="ab-m top">Badging</div><div class="ab-m top">Colour</div><div class="ab-m top">Size</div><div class="ab-m top">Quantity Selector</div><div class="ab-m top">Add to Bag / PayPal Checkout</div><div class="ab-gap"></div><div class="ab-m" style="background:#CFE2F3"><i>01</i>GWP</div><div class="ab-m" style="background:#FFF2CC"><i>02</i>BNPL</div><div class="ab-m" style="background:#CCCCCC"><i>03</i>Unlimited</div><div class="ab-m" style="background:#D9EAD3"><i>04</i>Delivery / Returns</div><div class="ab-m" style="background:#A2C4C9"><i>05</i>Deliver+</div><div class="ab-m" style="background:#E6B8AF"><i>06</i>Cover Genius</div><div class="ab-m" style="background:#D9D2E9"><i>07</i>At a Glance</div><div class="ab-m" style="background:#D9D2E9"><i>08</i>Accordions</div><div class="ab-m plain"><i>09</i>Flixmedia</div><div class="ab-m" style="background:#FCE5CD"><i>10</i>Bundle</div><div class="ab-m" style="background:#EFEFEF"><i>11</i>Foundation/Makeup/Skincare Finder</div><div class="ab-m" style="background:#FFFFFF"><i>12</i>Subscribe &amp; Save</div><div class="ab-m" style="background:#A4C2F4"><i>13</i>Reviews</div><div class="ab-m" style="background:#EAD1DC"><i>14</i>We Think You&#x27;ll Like</div><div class="ab-m" style="background:#EAD1DC"><i>15</i>Sponsored Products</div><div class="ab-m" style="background:#FFFFFF"><i>16</i>Recently Viewed</div></div></div><div class="ab-col"><h5>Option B</h5><p class="ab-cap">Description closed by default</p><div class="ab-page"><div class="ab-m top hero">Image Carousel</div><div class="ab-m top">Brand Name / Product Title</div><div class="ab-m top">Badging</div><div class="ab-m top">Colour</div><div class="ab-m top">Size</div><div class="ab-m top">Quantity Selector</div><div class="ab-m top">Add to Bag / PayPal Checkout</div><div class="ab-gap"></div><div class="ab-m" style="background:#FFF2CC"><i>01</i>BNPL</div><div class="ab-m" style="background:#CFE2F3"><i>02</i>GWP</div><div class="ab-m" style="background:#D9D2E9"><i>03</i>At a Glance</div><div class="ab-m" style="background:#D9D2E9"><i>04</i>Accordions</div><div class="ab-m" style="background:#D9EAD3"><i>05</i>Delivery / Returns</div><div class="ab-m" style="background:#CCCCCC"><i>06</i>Unlimited</div><div class="ab-m" style="background:#A2C4C9"><i>07</i>Deliver+</div><div class="ab-m" style="background:#E6B8AF"><i>08</i>Cover Genius</div><div class="ab-m plain"><i>09</i>Flixmedia</div><div class="ab-m" style="background:#FCE5CD"><i>10</i>Bundle</div><div class="ab-m" style="background:#EFEFEF"><i>11</i>Foundation/Makeup/Skincare Finder</div><div class="ab-m" style="background:#FFFFFF"><i>12</i>Subscribe &amp; Save</div><div class="ab-m" style="background:#A4C2F4"><i>13</i>Reviews</div><div class="ab-m" style="background:#EAD1DC"><i>14</i>We Think You&#x27;ll Like</div><div class="ab-m" style="background:#EAD1DC"><i>15</i>Sponsored Products</div><div class="ab-m" style="background:#FFFFFF"><i>16</i>Recently Viewed</div></div></div><div class="ab-col"><h5>No Revieve</h5><p class="ab-cap">Live page without Revieve. Description closed by default</p><div class="ab-page"><div class="ab-m top hero">Image Carousel</div><div class="ab-m top">Brand Name / Product Title</div><div class="ab-m top">Badging</div><div class="ab-m top">Colour</div><div class="ab-m top">Size</div><div class="ab-m top">Quantity Selector</div><div class="ab-m top">Add to Bag / PayPal Checkout</div><div class="ab-gap"></div><div class="ab-m" style="background:#CCCCCC"><i>01</i>Unlimited</div><div class="ab-m" style="background:#E6B8AF"><i>02</i>Cover Genius</div><div class="ab-m" style="background:#A2C4C9"><i>03</i>Deliver+</div><div class="ab-m" style="background:#D9EAD3"><i>04</i>Delivery / Returns</div><div class="ab-m" style="background:#FFF2CC"><i>05</i>BNPL</div><div class="ab-m" style="background:#FFFFFF"><i>06</i>Subscribe &amp; Save</div><div class="ab-m" style="background:#CFE2F3"><i>07</i>GWP</div><div class="ab-m" style="background:#FCE5CD"><i>08</i>Bundle</div><div class="ab-m" style="background:#D9D2E9"><i>09</i>At a Glance</div><div class="ab-m" style="background:#D9D2E9"><i>10</i>Accordions</div><div class="ab-m plain"><i>11</i>Flixmedia</div><div class="ab-m" style="background:#EAD1DC"><i>12</i>We Think You&#x27;ll Like</div><div class="ab-m" style="background:#EAD1DC"><i>13</i>Sponsored Products</div><div class="ab-m" style="background:#A4C2F4"><i>14</i>Reviews</div><div class="ab-m" style="background:#FFFFFF"><i>15</i>Recently Viewed</div></div></div></div></div></div><p class="ab-note">Numbers show each module's position below Add to bag. Unused modules are greyed out per page type.</p></div>
+  <h3>What this means for the next tests</h3>
+  <ul class="b"><li>In Home and Beauty, lots of modules moved at once, so it was hard to understand what caused the drop.</li><li>Future tests need to be more atomic: change one thing at a time and measure its impact.</li><li>That is harder when the PDP format and UI are changing at the same time, so the test plan for the redesign needs to allow for it.</li></ul>
 </section>
 
 <section id="next">
-  <div class="eyebrow">08</div>
+  <div class="eyebrow">07</div>
   <h2>What happens next</h2><div class="rule"></div>
-  <h3><span class="tick"></span>Principles for the new PDP</h3>
-  <ul class="b">
-    <li>Above the CTAs, show only what helps someone choose this product.</li>
-    <li>Every module has a job, an owner and a metric.</li>
-    <li>One system: layouts per category and themes per brand, with no forked pages.</li>
-    <li>Delivery, returns, promotions and payments each appear once.</li>
-    <li>Test anything that touches profit, and check attach rates in every test.</li>
-    <li>Where the problem is in the data, fix the data.</li>
-    <li>Ship on web first, then take the same components to app.</li>
-  </ul>
-  <h3><span class="tick"></span>Concept phase</h3>
-  <p>Working prototypes for every fascia, on mobile, desktop and app, built on the group design system so people can click through each idea and compare them:</p>
-  <ul class="b">
-    <li>The decision zone, with fashion, home and furniture, and beauty layouts.</li>
-    <li>Matching set, Shop the look and Ways to style.</li>
-    <li>One delivery and returns module with a date.</li>
-    <li>Ancillary placement variants, ready for test.</li>
-    <li>The variant selector (range, fit, colour, size).</li>
-    <li>A configurator, so trading teams can reorder and toggle modules and preview real SKUs.</li>
-  </ul>
-  <p>After that we play the concepts back to each brand and build a test roadmap with Becca.</p>
-</section>
-
-<section id="asks">
-  <div class="eyebrow">09</div>
-  <h2>What we need from the business</h2><div class="rule"></div>
-  <ul class="b">
-    <li>The payment and partner obligations list, and Legal's view on the BNPL box and fibre content.</li>
-    <li>Seel attach rate by brand and category, and its measured effect on conversion.</li>
-    <li>Becca's PDP heatmap and interaction data; per-widget recommendation performance.</li>
-    <li>The funnel, Germany and Google audit reports promised in the interviews.</li>
-    <li>Time with Debenhams Beauty and PrettyLittleThing, the two voices still missing.</li>
-    <li>A route for outfit data from the studio and PIM, and the Plus / Tall SKU decision.</li>
-    <li>Agreement that every new PDP element goes live through a test.</li>
-  </ul>
+  <h3>Principles for the new PDP</h3><ul class="b"><li>Prioritise the info that helps someone decide to purchase this product over anything else on the page.</li><li>Every module has a job, an owner and a metric. We continuously measure at a granular level of detail (each click/tap, scroll etc.)</li><li>One framework, one design system: layouts per category and UI themes per brand, with no forked pages.</li><li>Delivery, returns, promotions and payments each appear clearly, once, in a purpose designed position, not repeated.</li><li>Test anything that touches profit and deliver+ uptake, check attach rates in every test.</li><li>Where the problem is in the data, fix the data. This is a key enabler prior to the new PDP going live, the front end can only do so much.</li><li>Ship on web first, then fast follow on app once value is proven, if not start to test on app. Ensure the same components are used app as are used on web (unless native nuance justifies), enabling operational efficiency and pace of delivery, as well as a consistent experience for users.</li></ul><h3>Concept phase</h3><p>UX to explore multiple designs, prototypes and concepts  for every fascia, on mobile, desktop and app, built on the group design system, before reviewing and feeding back with the team.</p><h3>IDEATION &amp; BENCHMARKING WORKSHOPS</h3><p>UX will run a series of ideation and benchmarking workshops, starting with the UX, Tech and Product team, then expanding to brands if required. In these sessions, we will share examples of what good looks like from other competitors, discuss what might be worth exploring for us and review any designs and concepts created by UX.</p><h3>A/B &amp; CRO TEST PLAN &amp; OPTIMISATION</h3><p>UX will work hand in hand with Experimentation team to break down concepts and designs we wish to progress into a robust testing plan, and ensure experimentation team’s involvement in the project from the outset.</p>
 </section>
 </main>
-<footer><div class="wrap">
-  <div class="eyebrow">Source</div>
-  <p style="margin-top:12px">Each finding comes from numbered insights, with verbatim quotes and timestamps, in the project repo: research · <a href="../deck/">summary deck</a>.</p>
-</div></footer>
+<footer></footer>
 </body>
 </html>
